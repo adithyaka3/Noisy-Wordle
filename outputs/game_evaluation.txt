@@ -1,0 +1,1371 @@
+============================================================
+                 NOISY WORDLE BENCHMARK                     
+============================================================
+
+
+############################################################
+TARGET WORD FOR ALL STRATEGIES: MCLCM
+############################################################
+
+
+>>> RUNNING STRATEGY 1: LINEAR SCAN MSPRT <<<
+============================================================
+GAME INITIALIZATION (LINEAR SCAN ALGORITHM)
+Dictionary Size: 10000 words
+Target Word:     MCLCM
+============================================================
+
+--- TURN 01 ---
+Action:       AI Guesses 'FOEQC'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟨
+Noisy Sensor: 🟩 🟨 ⬛ 🟨 🟨
+
+Status:       Top 3 Hypotheses
+              1. FQCRO  | LL:  -2.55
+              2. GCQOZ  | LL:  -3.65
+              3. HCBOQ  | LL:  -3.65
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 130.1569s | Update computed in 0.0177s
+
+--- TURN 02 ---
+Action:       AI Guesses 'WRCGN'
+True Signal:  ⬛ ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 🟨 ⬛
+
+Status:       Top 3 Hypotheses
+              1. GCQOZ  | LL:  -6.21
+              2. FQZCG  | LL:  -6.21
+              3. CGPOO  | LL:  -7.31
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 114.3778s | Update computed in 0.0179s
+
+--- TURN 03 ---
+Action:       AI Guesses 'DTGOQ'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ ⬛ ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. FQZCG  | LL: -10.96
+              2. FKGCJ  | LL: -10.96
+              3. FSUCQ  | LL: -10.96
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 41.0456s | Update computed in 0.0178s
+
+--- TURN 04 ---
+Action:       AI Guesses 'AVCOK'
+True Signal:  ⬛ ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ ⬛ 🟩 🟨
+
+Status:       Top 3 Hypotheses
+              1. FKGCJ  | LL: -15.71
+              2. CSKOY  | LL: -15.71
+              3. CGPOO  | LL: -16.81
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 91.1945s | Update computed in 0.0179s
+
+--- TURN 05 ---
+Action:       AI Guesses 'FYUJX'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟨 ⬛ 🟩 ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. FSUCQ  | LL: -20.46
+              2. CHFOS  | LL: -20.46
+              3. KFUKG  | LL: -20.46
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 76.9104s | Update computed in 0.0180s
+
+--- TURN 06 ---
+Action:       AI Guesses 'MKQFP'
+True Signal:  🟩 ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟩 ⬛ 🟩 🟨 🟩
+
+Status:       Top 3 Hypotheses
+              1. MCQKF  | LL: -25.21
+              2. FSQOC  | LL: -26.31
+              3. FSUCQ  | LL: -26.31
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 60.4817s | Update computed in 0.0180s
+
+--- TURN 07 ---
+Action:       AI Guesses 'MCQKF'
+True Signal:  🟩 🟩 ⬛ ⬛ ⬛
+Noisy Sensor: 🟩 🟩 ⬛ 🟩 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCQKF  | LL: -29.96
+              2. UCFPP  | LL: -31.06
+              3. FCSUO  | LL: -32.16
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 12.5545s | Update computed in 0.0175s
+
+--- TURN 08 ---
+Action:       AI Guesses 'FKUMP'
+True Signal:  ⬛ ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 ⬛ 🟨
+
+Status:       Top 3 Hypotheses
+              1. UCFPP  | LL: -35.81
+              2. FCSUO  | LL: -36.91
+              3. FCPCH  | LL: -36.91
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 3.3141s | Update computed in 0.0178s
+
+--- TURN 09 ---
+Action:       AI Guesses 'FCSUO'
+True Signal:  ⬛ 🟩 ⬛ ⬛ ⬛
+Noisy Sensor: 🟩 🟩 🟩 ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. FCPCH  | LL: -40.56
+              2. FCSUO  | LL: -41.66
+              3. FCSAL  | LL: -41.66
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 4.9532s | Update computed in 0.0177s
+
+--- TURN 10 ---
+Action:       AI Guesses 'MWFSP'
+True Signal:  🟩 ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟨 ⬛ 🟩 ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. FCFTG  | LL: -46.41
+              2. FCPCH  | LL: -46.41
+              3. CCFMM  | LL: -46.41
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 1.6099s | Update computed in 0.0178s
+
+--- TURN 11 ---
+Action:       AI Guesses 'MHFLB'
+True Signal:  🟩 ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: 🟩 ⬛ ⬛ ⬛ 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCUBU  | LL: -51.17
+              2. FCFTG  | LL: -52.26
+              3. CCFMM  | LL: -52.26
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 4.1552s | Update computed in 0.0185s
+
+--- TURN 12 ---
+Action:       AI Guesses 'FIBMG'
+True Signal:  ⬛ ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: ⬛ ⬛ ⬛ 🟨 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCUBU  | LL: -55.92
+              2. MCCGM  | LL: -57.02
+              3. MCJKM  | LL: -57.02
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 2.2470s | Update computed in 0.0185s
+
+--- TURN 13 ---
+Action:       AI Guesses 'MZPFU'
+True Signal:  🟩 ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟨 ⬛ 🟨 ⬛ 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCUBU  | LL: -61.77
+              2. CCXUM  | LL: -62.87
+              3. MCXUY  | LL: -62.87
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 1.9497s | Update computed in 0.0183s
+
+--- TURN 14 ---
+Action:       AI Guesses 'MCUMY'
+True Signal:  🟩 🟩 ⬛ 🟨 ⬛
+Noisy Sensor: 🟨 🟨 ⬛ 🟨 ⬛
+
+Status:       Top 3 Hypotheses
+              1. QCMGM  | LL: -67.62
+              2. MCJKM  | LL: -67.62
+              3. MCCGM  | LL: -67.62
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 3.0931s | Update computed in 0.0180s
+
+--- TURN 15 ---
+Action:       AI Guesses 'UCKPG'
+True Signal:  ⬛ 🟩 ⬛ ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟨 ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. MCJKM  | LL: -71.27
+              2. CCXUM  | LL: -72.37
+              3. VCBKM  | LL: -72.37
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 4.6375s | Update computed in 0.0181s
+
+--- TURN 16 ---
+Action:       AI Guesses 'MCJKM'
+True Signal:  🟩 🟩 ⬛ ⬛ 🟩
+Noisy Sensor: 🟨 🟨 ⬛ ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. MCUBU  | LL: -77.12
+              2. CCXUM  | LL: -78.22
+              3. NCMKG  | LL: -78.22
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.9171s | Update computed in 0.0182s
+
+--- TURN 17 ---
+Action:       AI Guesses 'CCXUM'
+True Signal:  🟨 🟩 ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 🟨 ⬛ 🟨 🟩
+
+Status:       Top 3 Hypotheses
+              1. MCUBU  | LL: -82.97
+              2. CMCDM  | LL: -82.97
+              3. CMUKY  | LL: -82.97
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 2.9143s | Update computed in 0.0176s
+
+--- TURN 18 ---
+Action:       AI Guesses 'PCCMM'
+True Signal:  ⬛ 🟩 🟨 🟨 🟩
+Noisy Sensor: ⬛ 🟩 🟨 🟩 🟩
+
+Status:       Top 3 Hypotheses
+              1. CCFMM  | LL: -85.52
+              2. CCXUM  | LL: -87.72
+              3. MCLCM  | LL: -87.72
+
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  Guess calculated in 2.2401s | Update computed in 0.0180s
+
+--- TURN 19 ---
+Action:       AI Guesses 'QMCCM'
+True Signal:  ⬛ 🟨 🟨 🟩 🟩
+Noisy Sensor: 🟩 🟨 🟨 🟩 🟨
+
+Status:       Top 3 Hypotheses
+              1. CCFMM  | LL: -91.37
+              2. MCLCM  | LL: -92.47
+              3. QCMGM  | LL: -93.57
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.2110s | Update computed in 0.0179s
+
+--- TURN 20 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -97.22
+              2. MCUBU  | LL: -98.32
+              3. CCFMM  | LL: -98.32
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.1401s | Update computed in 0.0178s
+
+--- TURN 21 ---
+Action:       AI Guesses 'MUMQN'
+True Signal:  🟩 ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 🟩 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -103.07
+              2. CCFMM  | LL: -104.17
+              3. NCMKG  | LL: -106.37
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.1824s | Update computed in 0.0183s
+
+--- TURN 22 ---
+Action:       AI Guesses 'MTNMI'
+True Signal:  🟩 ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: 🟨 ⬛ 🟨 🟩 ⬛
+
+Status:       Top 3 Hypotheses
+              1. CCFMM  | LL: -107.83
+              2. MCLCM  | LL: -108.92
+              3. NCMKG  | LL: -110.02
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.1136s | Update computed in 0.0179s
+
+--- TURN 23 ---
+Action:       AI Guesses 'MLGMA'
+True Signal:  🟩 🟨 ⬛ 🟨 ⬛
+Noisy Sensor: 🟨 🟨 🟩 ⬛ ⬛
+
+Status:       Top 3 Hypotheses
+              1. CCFMM  | LL: -113.68
+              2. NCMKG  | LL: -114.77
+              3. MCLCM  | LL: -114.77
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.1135s | Update computed in 0.0180s
+
+--- TURN 24 ---
+Action:       AI Guesses 'WEMMS'
+True Signal:  ⬛ ⬛ 🟨 🟨 ⬛
+Noisy Sensor: 🟨 🟨 🟨 🟨 ⬛
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -119.53
+              2. CCFMM  | LL: -119.53
+              3. NCMKG  | LL: -121.72
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.1509s | Update computed in 0.0181s
+
+--- TURN 25 ---
+Action:       AI Guesses 'SLMMN'
+True Signal:  ⬛ 🟨 🟨 🟨 ⬛
+Noisy Sensor: 🟩 🟨 ⬛ 🟨 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -125.38
+              2. CCFMM  | LL: -127.57
+              3. NCMKG  | LL: -128.67
+
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.1273s | Update computed in 0.0183s
+
+--- TURN 26 ---
+Action:       AI Guesses 'CNWMC'
+True Signal:  🟨 ⬛ ⬛ 🟨 🟨
+Noisy Sensor: ⬛ 🟩 ⬛ 🟨 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -130.13
+              2. CCFMM  | LL: -133.42
+              3. NCMKG  | LL: -134.52
+
+Metrics:      Current LLR Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0569s | Update computed in 0.0178s
+
+--- TURN 27 ---
+Action:       AI Guesses 'OXGLM'
+True Signal:  ⬛ ⬛ ⬛ 🟨 🟩
+Noisy Sensor: ⬛ ⬛ ⬛ 🟨 ⬛
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -133.78
+              2. CCFMM  | LL: -138.17
+              3. NCMKG  | LL: -140.37
+
+Metrics:      Current LLR Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0352s | Update computed in 0.0181s
+
+--- TURN 28 ---
+Action:       AI Guesses 'VFPAV'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 ⬛ 🟩 ⬛
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -138.53
+              2. CCFMM  | LL: -142.93
+              3. NCMKG  | LL: -145.12
+
+Metrics:      Current LLR Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0227s | Update computed in 0.0177s
+
+--- TURN 29 ---
+Action:       AI Guesses 'VFPAV'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟩 ⬛ ⬛ ⬛ 🟨
+
+Status:       Top 3 Hypotheses
+              1. MCLCM  | LL: -143.28
+              2. CCFMM  | LL: -148.78
+              3. NCMKG  | LL: -149.87
+
+Metrics:      Current LLR Gap is 5.49 / 4.60
+Performance:  Guess calculated in 0.0229s | Update computed in 0.0181s
+
+============================================================
+RESOLUTION ACHIEVED
+Target identified as MCLCM on Turn 29.
+Total Computation Time: 560.4506 seconds.
+The secret word was MCLCM and the model has guessed it correctly!
+============================================================
+
+
+>>> RUNNING STRATEGY 2: PARALLEL TRIE BFS <<<
+============================================================
+GAME INITIALIZATION (PARALLEL TRIE ALGORITHM)
+Dictionary Size: 10000 words
+Target Word:     MCLCM
+Target Gap:      4.60 (99% Confidence)
+============================================================
+System: Booting parallel pool with 20 CPU cores...
+
+--- TURN 01 ---
+Action:       AI Guesses 'ZTVGI'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. LTVIC (LL:  -2.55)
+              2. MTOIK (LL:  -3.65)
+              3. FIVCM (LL:  -3.65)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0185s
+
+--- TURN 02 ---
+Action:       AI Guesses 'LTVIC'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟨
+Noisy Sensor: 🟩 🟨 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. SHVDT (LL:  -8.40)
+              2. LJVFM (LL:  -8.40)
+              3. TPVMA (LL:  -8.40)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0162s
+
+--- TURN 03 ---
+Action:       AI Guesses 'SHVDT'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟩 🟨 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. NNVHX (LL: -13.16)
+              2. YQVMH (LL: -13.16)
+              3. SSVIA (LL: -13.16)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0147s
+
+--- TURN 04 ---
+Action:       AI Guesses 'NNVHX'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. SSVIA (LL: -16.81)
+              2. LJVFM (LL: -16.81)
+              3. LAVSB (LL: -16.81)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0153s
+
+--- TURN 05 ---
+Action:       AI Guesses 'SSVIA'
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. LJVFM (LL: -20.46)
+              2. LNVZR (LL: -20.46)
+              3. MNVRO (LL: -20.46)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0163s
+
+--- TURN 06 ---
+Action:       AI Guesses 'LJVFM'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. LJVFM (LL: -25.21)
+              2. FJVFM (LL: -25.21)
+              3. UFVFM (LL: -26.31)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0134s
+
+--- TURN 07 ---
+Action:       AI Guesses 'LJVFM'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. FJVFM (LL: -29.96)
+              2. JQVKM (LL: -29.96)
+              3. LJVFM (LL: -31.06)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0138s
+
+--- TURN 08 ---
+Action:       AI Guesses 'FJVFM'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ ⬛ ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. JQVKM (LL: -34.71)
+              2. NOVVM (LL: -35.81)
+              3. AAVKM (LL: -35.81)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0139s
+
+--- TURN 09 ---
+Action:       AI Guesses 'JQVKM'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ ⬛ 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. NOVVM (LL: -38.37)
+              2. PRVNM (LL: -38.37)
+              3. OCVHM (LL: -38.37)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0137s
+
+--- TURN 10 ---
+Action:       AI Guesses 'NOVVM'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟨 🟩 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. PRVNM (LL: -43.12)
+              2. GOVEM (LL: -43.12)
+              3. NOVVM (LL: -44.22)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0146s
+
+--- TURN 11 ---
+Action:       AI Guesses 'PRVNM'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. GOVEM (LL: -47.87)
+              2. OWRHM (LL: -48.97)
+              3. HBWRM (LL: -48.97)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0141s
+
+--- TURN 12 ---
+Action:       AI Guesses 'GOVEM'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. HBWRM (LL: -53.72)
+              2. ZERYM (LL: -53.72)
+              3. RBEAM (LL: -53.72)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0145s
+
+--- TURN 13 ---
+Action:       AI Guesses 'HBWRM'
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. TMBYM (LL: -57.37)
+              2. GOVEM (LL: -57.37)
+              3. YJBRM (LL: -58.47)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0139s
+
+--- TURN 14 ---
+Action:       AI Guesses 'TMBYM'
+True Signal:  ⬛ 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. TMBYM (LL: -62.12)
+              2. ZERYM (LL: -62.12)
+              3. GOVEM (LL: -62.12)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0154s
+
+--- TURN 15 ---
+Action:       AI Guesses 'TMBYM'
+True Signal:  ⬛ 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ ⬛ ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. EMYXM (LL: -65.78)
+              2. ZERYM (LL: -65.78)
+              3. YEWYM (LL: -65.78)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0144s
+
+--- TURN 16 ---
+Action:       AI Guesses 'EMYXM'
+True Signal:  ⬛ 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. SNIMM (LL: -70.53)
+              2. GOVEM (LL: -70.53)
+              3. UFVFM (LL: -71.63)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0140s
+
+--- TURN 17 ---
+Action:       AI Guesses 'SNIMM'
+True Signal:  ⬛ ⬛ ⬛ 🟨 🟩
+Noisy Sensor: ⬛ 🟨 🟩 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CMVAM (LL: -76.38)
+              2. MAAUM (LL: -76.38)
+              3. SNIMM (LL: -76.38)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0140s
+
+--- TURN 18 ---
+Action:       AI Guesses 'CMVAM'
+True Signal:  🟨 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 🟩 🟨 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CMCDM (LL: -81.13)
+              2. CMVAM (LL: -81.13)
+              3. UMPYM (LL: -81.13)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0141s
+
+--- TURN 19 ---
+Action:       AI Guesses 'CMCDM'
+True Signal:  🟨 🟨 🟨 ⬛ 🟩
+Noisy Sensor: 🟩 🟨 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CMVAM (LL: -84.78)
+              2. CIVUM (LL: -85.88)
+              3. CKVUM (LL: -85.88)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0135s
+
+--- TURN 20 ---
+Action:       AI Guesses 'CMVAM'
+True Signal:  🟨 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: 🟨 🟨 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CIVUM (LL: -90.63)
+              2. CKVUM (LL: -90.63)
+              3. CMVAM (LL: -90.63)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0138s
+
+--- TURN 21 ---
+Action:       AI Guesses 'CIVUM'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟨 ⬛ ⬛ 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MLYUM (LL: -96.48)
+              2. MCJKM (LL: -96.48)
+              3. CKVUM (LL: -96.48)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0141s
+
+--- TURN 22 ---
+Action:       AI Guesses 'MLYUM'
+True Signal:  🟩 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCJKM (LL: -100.14)
+              2. MCCGM (LL: -100.14)
+              3. MWEPM (LL: -101.23)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0143s
+
+--- TURN 23 ---
+Action:       AI Guesses 'MCJKM'
+True Signal:  🟩 🟩 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CKVUM (LL: -104.89)
+              2. MCJKM (LL: -105.99)
+              3. CIVUM (LL: -105.99)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0163s
+
+--- TURN 24 ---
+Action:       AI Guesses 'CKVUM'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟨 🟨 🟩 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCJKM (LL: -110.74)
+              2. CKVUM (LL: -110.74)
+              3. CIVUM (LL: -111.84)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0228s
+
+--- TURN 25 ---
+Action:       AI Guesses 'MCJKM'
+True Signal:  🟩 🟩 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CIVUM (LL: -115.49)
+              2. CKVUM (LL: -115.49)
+              3. OCVHM (LL: -115.49)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0005s | Update computed in 0.0249s
+
+--- TURN 26 ---
+Action:       AI Guesses 'CIVUM'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 🟩 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. CIVUM (LL: -120.24)
+              2. MCCGM (LL: -120.24)
+              3. MCJKM (LL: -121.34)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0196s
+
+--- TURN 27 ---
+Action:       AI Guesses 'CIVUM'
+True Signal:  🟨 ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟨 ⬛ 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. OCVHM (LL: -123.89)
+              2. MCCGM (LL: -123.89)
+              3. MCJKM (LL: -124.99)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0144s
+
+--- TURN 28 ---
+Action:       AI Guesses 'OCVHM'
+True Signal:  ⬛ 🟩 ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 🟩 ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. OCVHM (LL: -128.64)
+              2. MCCGM (LL: -128.64)
+              3. MCJKM (LL: -129.74)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0139s
+
+--- TURN 29 ---
+Action:       AI Guesses 'OCVHM'
+True Signal:  ⬛ 🟩 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCCGM (LL: -132.30)
+              2. MCJKM (LL: -133.39)
+              3. QCMGM (LL: -133.39)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0138s
+
+--- TURN 30 ---
+Action:       AI Guesses 'MCCGM'
+True Signal:  🟩 🟩 🟨 ⬛ 🟩
+Noisy Sensor: 🟩 🟩 🟨 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCCGM (LL: -137.05)
+              2. MCJKM (LL: -139.24)
+              3. MCLCM (LL: -139.24)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0130s
+
+--- TURN 31 ---
+Action:       AI Guesses 'MCCGM'
+True Signal:  🟩 🟩 🟨 ⬛ 🟩
+Noisy Sensor: 🟩 🟨 🟨 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -142.90)
+              2. MCCGM (LL: -142.90)
+              3. MCJKM (LL: -144.00)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0143s
+
+--- TURN 32 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟨 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -146.55)
+              2. MCCGM (LL: -147.65)
+              3. MCJKM (LL: -148.75)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0141s
+
+--- TURN 33 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -150.20)
+              2. MCCGM (LL: -153.50)
+              3. MCJKM (LL: -154.60)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0127s
+
+--- TURN 34 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -153.86)
+              2. MCCGM (LL: -157.15)
+              3. MCJKM (LL: -158.25)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0129s
+
+--- TURN 35 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -157.51)
+              2. MCCGM (LL: -160.80)
+              3. MCJKM (LL: -161.90)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0002s | Update computed in 0.0136s
+
+--- TURN 36 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟨 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -161.16)
+              2. MCCGM (LL: -165.56)
+              3. MCJKM (LL: -166.65)
+Metric:       Current Leader Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0145s
+
+--- TURN 37 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: ⬛ 🟨 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -168.11)
+              2. MCCGM (LL: -172.50)
+              3. MCJKM (LL: -174.70)
+Metric:       Current Leader Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0128s
+
+--- TURN 38 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -173.96)
+              2. MCCGM (LL: -178.35)
+              3. MCJKM (LL: -180.55)
+Metric:       Current Leader Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0130s
+
+--- TURN 39 ---
+Action:       AI Guesses 'MCLCM'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟨 🟩 🟨 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. MCLCM (LL: -179.81)
+              2. MCCGM (LL: -185.30)
+              3. MCJKM (LL: -187.50)
+Metric:       Current Leader Gap is 5.49 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0130s
+
+============================================================
+RESOLUTION ACHIEVED
+Result: AI has established mathematical dominance.
+Target identified as MCLCM on Turn 39.
+Total Computation Time: 0.5905 seconds.
+The secret word was MCLCM and the model has guessed it correctly!
+============================================================
+
+
+>>> RUNNING STRATEGY 3: THOMPSON SAMPLING ON TRIE <<<
+============================================================
+GAME INITIALIZATION (THOMPSON SAMPLING ON TRIE)
+Dictionary Size: 10000 words
+Target Word:     MCLCM
+Target Gap:      4.60 (99% Confidence)
+============================================================
+System: Booting parallel pool with 20 CPU cores...
+
+--- TURN 01 ---
+Action:       AI Samples 'WRDFW' [Exploration (Rank #8813)]
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ ⬛ 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. VFPAV (Prob:  0.03% | LL:  -2.55)
+              2. JFQSI (Prob:  0.03% | LL:  -2.55)
+              3. ZAGAF (Prob:  0.03% | LL:  -2.55)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0176s
+
+--- TURN 02 ---
+Action:       AI Samples 'KKAUX' [Exploration (Rank #5522)]
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ 🟨 ⬛ ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. JFQSI (Prob:  0.06% | LL:  -6.21)
+              2. FBLTM (Prob:  0.06% | LL:  -6.21)
+              3. FIVCM (Prob:  0.06% | LL:  -6.21)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0143s
+
+--- TURN 03 ---
+Action:       AI Samples 'GYQML' [Exploration (Rank #1045)]
+True Signal:  ⬛ ⬛ ⬛ 🟨 🟨
+Noisy Sensor: 🟨 🟩 ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FMVGL (Prob:  0.91% | LL:  -9.86)
+              2. BYMOL (Prob:  0.30% | LL: -10.96)
+              3. MYGTS (Prob:  0.30% | LL: -10.96)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0141s
+
+--- TURN 04 ---
+Action:       AI Samples 'MOSFE' [Exploration (Rank #353)]
+True Signal:  🟩 ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FMVGL (Prob:  0.72% | LL: -14.61)
+              2. SYFCF (Prob:  0.72% | LL: -14.61)
+              3. IYBSF (Prob:  0.72% | LL: -14.61)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0153s
+
+--- TURN 05 ---
+Action:       AI Samples 'LGNBL' [Exploration (Rank #195)]
+True Signal:  🟨 ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟨 ⬛ 🟨 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. NHLLF (Prob:  2.03% | LL: -19.36)
+              2. SYTLF (Prob:  2.03% | LL: -19.36)
+              3. SFZYN (Prob:  0.68% | LL: -20.46)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0144s
+
+--- TURN 06 ---
+Action:       AI Samples 'PZGWF' [Exploration (Rank #438)]
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟨 ⬛ ⬛ 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. NIFPS (Prob:  3.01% | LL: -24.11)
+              2. HPFNS (Prob:  3.01% | LL: -24.11)
+              3. FLVWN (Prob:  1.00% | LL: -25.21)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0135s
+
+--- TURN 07 ---
+Action:       AI Samples 'SYTLF' [Exploration (Rank #15)]
+True Signal:  ⬛ ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: ⬛ ⬛ ⬛ ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. NIFPS (Prob:  2.00% | LL: -28.87)
+              2. HPFNS (Prob:  2.00% | LL: -28.87)
+              3. FLVWN (Prob:  0.67% | LL: -29.96)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0139s
+
+--- TURN 08 ---
+Action:       AI Samples 'HFJLL' [Exploration (Rank #9)]
+True Signal:  ⬛ ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: ⬛ ⬛ ⬛ ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. NIFPS (Prob:  1.96% | LL: -32.52)
+              2. CFCNS (Prob:  0.65% | LL: -33.62)
+              3. VNISP (Prob:  0.65% | LL: -33.62)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0141s
+
+--- TURN 09 ---
+Action:       AI Samples 'NPKLK' [Exploration (Rank #74)]
+True Signal:  ⬛ ⬛ ⬛ 🟨 ⬛
+Noisy Sensor: 🟩 ⬛ ⬛ ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. NIFPS (Prob:  2.75% | LL: -36.17)
+              2. NFCQC (Prob:  0.92% | LL: -37.27)
+              3. NNFWQ (Prob:  0.92% | LL: -37.27)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0137s
+
+--- TURN 10 ---
+Action:       AI Samples 'NFCQC' [Exploration (Rank #2)]
+True Signal:  ⬛ ⬛ 🟨 ⬛ 🟨
+Noisy Sensor: 🟨 🟨 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CFCNS (Prob:  8.35% | LL: -40.92)
+              2. NIFPS (Prob:  2.78% | LL: -42.02)
+              3. CNFTI (Prob:  0.93% | LL: -43.12)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0130s
+
+--- TURN 11 ---
+Action:       AI Samples 'TTTEM' [Exploration (Rank #2538)]
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CFCNS (Prob: 10.30% | LL: -44.57)
+              2. NIFPS (Prob:  3.43% | LL: -45.67)
+              3. TFFCN (Prob:  1.14% | LL: -46.77)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0134s
+
+--- TURN 12 ---
+Action:       AI Samples 'SYFCF' [Exploration (Rank #139)]
+True Signal:  ⬛ ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. TFFCN (Prob:  6.88% | LL: -50.42)
+              2. CFCNS (Prob:  6.88% | LL: -50.42)
+              3. FNAVA (Prob:  2.29% | LL: -51.52)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0159s
+
+--- TURN 13 ---
+Action:       AI Samples 'TFFCN' [Greedy]
+True Signal:  ⬛ ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ 🟨 ⬛ 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CFCNS (Prob:  5.34% | LL: -55.18)
+              2. FCPCH (Prob:  5.34% | LL: -55.18)
+              3. FBCNJ (Prob:  5.34% | LL: -55.18)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0142s
+
+--- TURN 14 ---
+Action:       AI Samples 'FVJDK' [Exploration (Rank #448)]
+True Signal:  ⬛ ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CFCNS (Prob:  4.84% | LL: -61.03)
+              2. FCPCH (Prob:  4.84% | LL: -61.03)
+              3. FBCNJ (Prob:  4.84% | LL: -61.03)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0145s
+
+--- TURN 15 ---
+Action:       AI Samples 'FUYWC' [Exploration (Rank #128)]
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟨
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CFCNS (Prob:  4.47% | LL: -66.88)
+              2. FCPCH (Prob:  4.47% | LL: -66.88)
+              3. FBCNJ (Prob:  4.47% | LL: -66.88)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0140s
+
+--- TURN 16 ---
+Action:       AI Samples 'VICTQ' [Exploration (Rank #1356)]
+True Signal:  ⬛ ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CFCNS (Prob:  8.23% | LL: -71.63)
+              2. FBCNJ (Prob:  8.23% | LL: -71.63)
+              3. CNCZM (Prob:  2.74% | LL: -72.73)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0131s
+
+--- TURN 17 ---
+Action:       AI Samples 'JHCND' [Exploration (Rank #19)]
+True Signal:  ⬛ ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: ⬛ 🟨 🟨 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 20.41% | LL: -76.38)
+              2. FXHCH (Prob:  2.27% | LL: -78.58)
+              3. ANCHD (Prob:  2.27% | LL: -78.58)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0132s
+
+--- TURN 18 ---
+Action:       AI Samples 'FXHCH' [Exploration (Rank #2)]
+True Signal:  ⬛ ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ ⬛ 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob:  8.13% | LL: -82.23)
+              2. QMCCM (Prob:  2.71% | LL: -83.33)
+              3. SMCCM (Prob:  2.71% | LL: -83.33)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0130s
+
+--- TURN 19 ---
+Action:       AI Samples 'FCHFB' [Exploration (Rank #75)]
+True Signal:  ⬛ 🟩 ⬛ ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 ⬛ 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PCPCP (Prob:  9.26% | LL: -86.98)
+              2. SMCCM (Prob:  3.09% | LL: -88.08)
+              3. QMCCM (Prob:  3.09% | LL: -88.08)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0135s
+
+--- TURN 20 ---
+Action:       AI Samples 'CSHCI' [Exploration (Rank #22)]
+True Signal:  🟨 ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PCPCP (Prob:  8.79% | LL: -92.83)
+              2. FCPCH (Prob:  8.79% | LL: -92.83)
+              3. AODCD (Prob:  2.93% | LL: -93.93)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0151s
+
+--- TURN 21 ---
+Action:       AI Samples 'CSHCI' [Exploration (Rank #29)]
+True Signal:  🟨 ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: 🟨 🟨 🟨 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 32.09% | LL: -96.48)
+              2. PCPCP (Prob: 10.70% | LL: -97.58)
+              3. SMCCM (Prob:  3.57% | LL: -98.68)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0129s
+
+--- TURN 22 ---
+Action:       AI Samples 'PCPCP' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ ⬛ 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 42.99% | LL: -101.23)
+              2. PCPCP (Prob: 14.33% | LL: -102.33)
+              3. AUNCP (Prob:  1.59% | LL: -104.53)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0141s
+
+--- TURN 23 ---
+Action:       AI Samples 'IXCCS' [Exploration (Rank #133)]
+True Signal:  ⬛ ⬛ 🟨 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟨 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 57.86% | LL: -105.99)
+              2. PCPCP (Prob: 19.29% | LL: -107.08)
+              3. HCOCT (Prob:  2.14% | LL: -109.28)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0136s
+
+--- TURN 24 ---
+Action:       AI Samples 'PCPCP' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ 🟨 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 62.77% | LL: -111.84)
+              2. QMCCM (Prob:  2.32% | LL: -115.13)
+              3. HCOCT (Prob:  2.32% | LL: -115.13)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0130s
+
+--- TURN 25 ---
+Action:       AI Samples 'FCPCH' [Greedy]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ 🟨 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 68.24% | LL: -116.59)
+              2. IMCCH (Prob:  7.58% | LL: -118.78)
+              3. QMCCM (Prob:  2.53% | LL: -119.88)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Sample computed in 0.0020s | Update computed in 0.0136s
+
+--- TURN 26 ---
+Action:       AI Samples 'FCPCH' [Greedy]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FCPCH (Prob: 59.88% | LL: -121.34)
+              2. PCPCP (Prob: 19.96% | LL: -122.44)
+              3. QMCCM (Prob:  2.22% | LL: -124.63)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0175s
+
+--- TURN 27 ---
+Action:       AI Samples 'FCPCH' [Greedy]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: ⬛ 🟨 ⬛ 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PCPCP (Prob: 14.74% | LL: -127.19)
+              2. QMCCM (Prob: 14.74% | LL: -127.19)
+              3. ALCCD (Prob: 14.74% | LL: -127.19)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0147s
+
+--- TURN 28 ---
+Action:       AI Samples 'YJCCX' [Exploration (Rank #45)]
+True Signal:  ⬛ ⬛ 🟨 🟩 ⬛
+Noisy Sensor: ⬛ ⬛ 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. QMCCM (Prob: 18.84% | LL: -130.84)
+              2. ALCCD (Prob: 18.84% | LL: -130.84)
+              3. CDCCX (Prob: 18.84% | LL: -130.84)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0023s | Update computed in 0.0170s
+
+--- TURN 29 ---
+Action:       AI Samples 'SMCCM' [Exploration (Rank #4)]
+True Signal:  ⬛ 🟨 🟨 🟩 🟩
+Noisy Sensor: ⬛ 🟩 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. QMCCM (Prob: 31.84% | LL: -135.59)
+              2. ALCCD (Prob: 10.61% | LL: -136.69)
+              3. PCPCP (Prob: 10.61% | LL: -136.69)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0140s
+
+--- TURN 30 ---
+Action:       AI Samples 'CDCCX' [Exploration (Rank #5)]
+True Signal:  🟨 ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: 🟩 🟨 ⬛ 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. QMCCM (Prob: 13.01% | LL: -142.54)
+              2. ALCCD (Prob: 13.01% | LL: -142.54)
+              3. PCPCP (Prob: 13.01% | LL: -142.54)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0140s
+
+--- TURN 31 ---
+Action:       AI Samples 'QMCCM' [Greedy]
+True Signal:  ⬛ 🟨 🟨 🟩 🟩
+Noisy Sensor: ⬛ 🟨 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PCPCP (Prob: 20.18% | LL: -147.29)
+              2. COUCU (Prob: 20.18% | LL: -147.29)
+              3. ALCCD (Prob:  6.73% | LL: -148.39)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0142s
+
+--- TURN 32 ---
+Action:       AI Samples 'ALCCD' [Exploration (Rank #3)]
+True Signal:  ⬛ 🟨 🟨 🟩 ⬛
+Noisy Sensor: ⬛ 🟨 🟨 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PCPCP (Prob: 19.72% | LL: -153.14)
+              2. MCLCM (Prob: 19.72% | LL: -153.14)
+              3. COUCU (Prob: 19.72% | LL: -153.14)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0144s
+
+--- TURN 33 ---
+Action:       AI Samples 'CDCCX' [Exploration (Rank #7)]
+True Signal:  🟨 ⬛ ⬛ 🟩 ⬛
+Noisy Sensor: 🟨 ⬛ ⬛ 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PCPCP (Prob: 30.48% | LL: -155.70)
+              2. MCLCM (Prob: 30.48% | LL: -155.70)
+              3. FCPCH (Prob: 10.16% | LL: -156.79)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0140s
+
+--- TURN 34 ---
+Action:       AI Samples 'MCLCM' [Exploration (Rank #2)]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. MCLCM (Prob: 82.49% | LL: -159.35)
+              2. PCPCP (Prob:  9.17% | LL: -161.55)
+              3. FCPCH (Prob:  3.06% | LL: -162.64)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Sample computed in 0.0019s | Update computed in 0.0145s
+
+--- TURN 35 ---
+Action:       AI Samples 'PCPCP' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. MCLCM (Prob: 67.27% | LL: -165.20)
+              2. PCPCP (Prob: 22.42% | LL: -166.30)
+              3. FCPCH (Prob:  7.47% | LL: -167.40)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0018s | Update computed in 0.0140s
+
+--- TURN 36 ---
+Action:       AI Samples 'MCLCM' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟨 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. MCLCM (Prob: 86.22% | LL: -171.05)
+              2. PCPCP (Prob:  9.58% | LL: -173.25)
+              3. FCPCH (Prob:  3.19% | LL: -174.34)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Sample computed in 0.0016s | Update computed in 0.0141s
+
+--- TURN 37 ---
+Action:       AI Samples 'PCPCP' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 ⬛ 🟩 ⬛
+Noisy Sensor: 🟩 🟩 ⬛ 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. MCLCM (Prob: 94.32% | LL: -175.80)
+              2. PCPCP (Prob:  3.49% | LL: -179.10)
+              3. FCPCH (Prob:  1.16% | LL: -180.19)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0160s
+
+--- TURN 38 ---
+Action:       AI Samples 'MCLCM' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. MCLCM (Prob: 99.78% | LL: -178.35)
+              2. PCPCP (Prob:  0.14% | LL: -184.95)
+              3. FCPCH (Prob:  0.05% | LL: -186.04)
+Metric:       Current Leader Gap is 6.59 / 4.60
+Performance:  Sample computed in 0.0017s | Update computed in 0.0158s
+
+============================================================
+RESOLUTION ACHIEVED
+Result: AI has established 99% mathematical dominance.
+Target identified as MCLCM on Turn 38.
+Total Computation Time: 0.6152 seconds.
+The secret word was MCLCM and the model has guessed it correctly!
+============================================================
+
+
+============================================================
+                   BENCHMARK RESULTS                        
+============================================================
+Strategy                       | Success | Turns | Time (s)  
+------------------------------------------------------------
+1. Linear Scan MSPRT           | Yes     | 29    | 560.4506  
+2. Parallel Trie BFS           | Yes     | 39    | 0.5905    
+3. Thompson Sampling           | Yes     | 38    | 0.6152    
+============================================================
