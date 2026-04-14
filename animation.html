@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noisy Wordle Visualizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            max-width: 700px;
+            width: 100%;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        h1 {
+            font-size: 1.5em;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            color: #222;
+        }
+        .meta-info {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .turn-counter {
+            font-weight: bold;
+            color: #555;
+        }
+        .board {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+        .column-header {
+            font-size: 0.85em;
+            text-transform: uppercase;
+            color: #777;
+            margin-bottom: 5px;
+        }
+        .tiles {
+            display: flex;
+            gap: 5px;
+        }
+        .tile {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            background: #fafafa;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+        .color-0 { background-color: #e0e0e0; color: #333; border-color: #ccc; }
+        .color-1 { background-color: #ffeb3b; color: #333; border-color: #fbc02d; }
+        .color-2 { background-color: #4caf50; color: #fff; border-color: #388e3c; }
+        
+        .contender-list {
+            position: relative;
+            height: 250px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 10px;
+            background: #fafafa;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .contender-row {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .c-word {
+            font-family: monospace;
+            font-size: 1.1em;
+            font-weight: bold;
+            width: 80px;
+            text-transform: uppercase;
+        }
+        .c-bar-container {
+            flex-grow: 1;
+            height: 8px;
+            background: #eee;
+            margin: 0 15px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .c-bar {
+            height: 100%;
+            background: #4a90e2;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .c-ll {
+            width: 50px;
+            text-align: right;
+            font-family: monospace;
+            color: #555;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 8px 16px;
+            font-size: 1em;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 4px;
+            color: #333;
+        }
+        button:hover:not(:disabled) {
+            background: #f0f0f0;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .end-state {
+            display: none;
+            padding: 15px;
+            background: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .end-state p { margin: 0 0 10px 0; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Noisy Wordle Visualizer</h1>
+    
+    <div class="meta-info">
+        <div>Target Word: <strong>HACKER</strong></div>
+        <div class="turn-counter">Turn: <span id="turn-num">0</span> / 30</div>
+    </div>
+
+    <div class="board">
+        <div class="column">
+            <div class="column-header">Current Guess</div>
+            <div class="tiles" id="guess-tiles"></div>
+        </div>
+        <div class="column">
+            <div class="column-header">Feedback</div>
+            <div class="tiles" id="sensor-tiles"></div>
+        </div>
+    </div>
+
+    <div class="column-header">Top 5 Candidates (Log-Likelihood)</div>
+    <div class="contender-list" id="contender-list"></div>
+
+    <div class="controls">
+        <button id="prev-btn" onclick="goPrev()">Previous</button>
+        <button id="next-btn" onclick="goNext()">Next</button>
+    </div>
+
+    <div class="end-state" id="end-state">
+        <p>The AI algorithm has finalized its decision and believes the word is <strong id="final-guess">...</strong>.</p>
+        <p>Is this correct?</p>
+        <button onclick="alert('Great! The math verified it.')">Yes</button>
+        <button onclick="alert('Interesting, the noise might have thrown it off.')">No</button>
+    </div>
+</div>
+
+<script>
+    const historyData = [{"turn": 0, "guess": "", "true_fb": [], "obs_fb": [], "top_contenders": [{"word": "aahing", "ll": 0.0}, {"word": "aaliis", "ll": 0.0}, {"word": "aarrgh", "ll": 0.0}, {"word": "ababua", "ll": 0.0}, {"word": "abacay", "ll": 0.0}, {"word": "abacas", "ll": 0.0}, {"word": "abacli", "ll": 0.0}, {"word": "abacot", "ll": 0.0}, {"word": "abacus", "ll": 0.0}, {"word": "abadia", "ll": 0.0}]}, {"turn": 1, "guess": "aahing", "true_fb": [0, 2, 1, 0, 0, 0], "obs_fb": [1, 0, 1, 1, 0, 0], "top_contenders": [{"word": "bhakti", "ll": -3.06}, {"word": "bharti", "ll": -3.06}, {"word": "bhotia", "ll": -3.06}, {"word": "bhutia", "ll": -3.06}, {"word": "bimahs", "ll": -3.06}, {"word": "brahmi", "ll": -3.06}, {"word": "brahui", "ll": -3.06}, {"word": "chadri", "ll": -3.06}, {"word": "chaksi", "ll": -3.06}, {"word": "chaori", "ll": -3.06}]}, {"turn": 2, "guess": "bhakti", "true_fb": [0, 1, 1, 2, 0, 0], "obs_fb": [0, 0, 0, 2, 0, 2], "top_contenders": [{"word": "shikii", "ll": -8.33}, {"word": "chaksi", "ll": -8.33}, {"word": "kookri", "ll": -8.33}, {"word": "burkei", "ll": -9.43}, {"word": "chichi", "ll": -9.43}, {"word": "chikee", "ll": -9.43}, {"word": "chilli", "ll": -9.43}, {"word": "chorei", "ll": -9.43}, {"word": "chuzwi", "ll": -9.43}, {"word": "coraji", "ll": -9.43}]}, {"turn": 3, "guess": "shikii", "true_fb": [0, 1, 0, 2, 0, 0], "obs_fb": [0, 1, 1, 0, 2, 0], "top_contenders": [{"word": "hippia", "ll": -13.59}, {"word": "hippic", "ll": -13.59}, {"word": "hippie", "ll": -13.59}, {"word": "hircic", "ll": -13.59}, {"word": "hizzie", "ll": -13.59}, {"word": "hickey", "ll": -14.69}, {"word": "bichir", "ll": -14.69}, {"word": "cephid", "ll": -14.69}, {"word": "cichar", "ll": -14.69}, {"word": "cipher", "ll": -14.69}]}, {"turn": 4, "guess": "hippia", "true_fb": [2, 0, 0, 0, 0, 1], "obs_fb": [2, 0, 0, 0, 2, 0], "top_contenders": [{"word": "heezie", "ll": -17.75}, {"word": "hellim", "ll": -17.75}, {"word": "hemoid", "ll": -17.75}, {"word": "herdic", "ll": -17.75}, {"word": "heroic", "ll": -17.75}, {"word": "heroid", "ll": -17.75}, {"word": "hexoic", "ll": -17.75}, {"word": "hydric", "ll": -17.75}, {"word": "hydrid", "ll": -17.75}, {"word": "hyloid", "ll": -17.75}]}, {"turn": 5, "guess": "heezie", "true_fb": [2, 1, 0, 0, 0, 0], "obs_fb": [2, 2, 1, 0, 1, 2], "top_contenders": [{"word": "heezie", "ll": -24.11}, {"word": "hellim", "ll": -24.11}, {"word": "hemoid", "ll": -24.11}, {"word": "herdic", "ll": -24.11}, {"word": "heroic", "ll": -24.11}, {"word": "heroid", "ll": -24.11}, {"word": "hexoic", "ll": -24.11}, {"word": "hoodie", "ll": -24.11}, {"word": "hoolie", "ll": -24.11}, {"word": "howdie", "ll": -24.11}]}, {"turn": 6, "guess": "heezie", "true_fb": [2, 1, 0, 0, 0, 0], "obs_fb": [1, 1, 0, 0, 0, 0], "top_contenders": [{"word": "hellim", "ll": -30.47}, {"word": "hemoid", "ll": -30.47}, {"word": "herdic", "ll": -30.47}, {"word": "heroic", "ll": -30.47}, {"word": "heroid", "ll": -30.47}, {"word": "hexoic", "ll": -30.47}, {"word": "hickey", "ll": -31.57}, {"word": "hectic", "ll": -31.57}, {"word": "helvin", "ll": -31.57}, {"word": "hennin", "ll": -31.57}]}, {"turn": 7, "guess": "hellim", "true_fb": [2, 1, 0, 0, 0, 0], "obs_fb": [2, 0, 0, 0, 1, 0], "top_contenders": [{"word": "herdic", "ll": -35.74}, {"word": "heroic", "ll": -35.74}, {"word": "heroid", "ll": -35.74}, {"word": "hexoic", "ll": -35.74}, {"word": "hickey", "ll": -35.74}, {"word": "hydric", "ll": -35.74}, {"word": "hydrid", "ll": -35.74}, {"word": "hircic", "ll": -35.74}, {"word": "hirudo", "ll": -35.74}, {"word": "horrid", "ll": -35.74}]}, {"turn": 8, "guess": "herdic", "true_fb": [2, 1, 1, 0, 0, 1], "obs_fb": [2, 1, 2, 0, 0, 1], "top_contenders": [{"word": "hickey", "ll": -41.0}, {"word": "heroic", "ll": -42.1}, {"word": "hicket", "ll": -42.1}, {"word": "hircin", "ll": -42.1}, {"word": "hircus", "ll": -42.1}, {"word": "hirers", "ll": -42.1}, {"word": "hirtch", "ll": -42.1}, {"word": "hockey", "ll": -42.1}, {"word": "hocker", "ll": -42.1}, {"word": "horkey", "ll": -42.1}]}, {"turn": 9, "guess": "hickey", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [1, 1, 1, 0, 2, 0], "top_contenders": [{"word": "heroic", "ll": -47.36}, {"word": "herdic", "ll": -48.46}, {"word": "hexoic", "ll": -48.46}, {"word": "hurrer", "ll": -48.46}, {"word": "hircin", "ll": -48.46}, {"word": "hircus", "ll": -48.46}, {"word": "hirtch", "ll": -48.46}, {"word": "hormic", "ll": -48.46}, {"word": "hircic", "ll": -48.46}, {"word": "enrich", "ll": -49.56}]}, {"turn": 10, "guess": "heroic", "true_fb": [2, 1, 1, 0, 0, 1], "obs_fb": [2, 2, 0, 1, 2, 1], "top_contenders": [{"word": "hexoic", "ll": -53.72}, {"word": "heroic", "ll": -53.72}, {"word": "herdic", "ll": -54.82}, {"word": "hircin", "ll": -54.82}, {"word": "hormic", "ll": -54.82}, {"word": "heuchs", "ll": -55.92}, {"word": "hickey", "ll": -55.92}, {"word": "hocked", "ll": -55.92}, {"word": "hockey", "ll": -55.92}, {"word": "hocket", "ll": -55.92}]}, {"turn": 11, "guess": "hexoic", "true_fb": [2, 1, 0, 0, 0, 1], "obs_fb": [2, 1, 1, 0, 1, 2], "top_contenders": [{"word": "hexoic", "ll": -61.18}, {"word": "hickey", "ll": -61.18}, {"word": "herdic", "ll": -61.18}, {"word": "heroic", "ll": -61.18}, {"word": "hicket", "ll": -61.18}, {"word": "huchen", "ll": -62.28}, {"word": "hectic", "ll": -62.28}, {"word": "hircin", "ll": -62.28}, {"word": "hircus", "ll": -62.28}, {"word": "hirtch", "ll": -62.28}]}, {"turn": 12, "guess": "hexoic", "true_fb": [2, 1, 0, 0, 0, 1], "obs_fb": [2, 1, 0, 0, 0, 1], "top_contenders": [{"word": "hickey", "ll": -65.34}, {"word": "hicket", "ll": -65.34}, {"word": "huchen", "ll": -65.34}, {"word": "humect", "ll": -66.44}, {"word": "herdic", "ll": -67.54}, {"word": "heuchs", "ll": -67.54}, {"word": "hocked", "ll": -67.54}, {"word": "hockey", "ll": -67.54}, {"word": "hocker", "ll": -67.54}, {"word": "hocket", "ll": -67.54}]}, {"turn": 13, "guess": "hickey", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [0, 0, 2, 2, 2, 0], "top_contenders": [{"word": "hicket", "ll": -70.61}, {"word": "huchen", "ll": -70.61}, {"word": "hickey", "ll": -71.7}, {"word": "hocked", "ll": -71.7}, {"word": "hocker", "ll": -71.7}, {"word": "hocket", "ll": -71.7}, {"word": "hockey", "ll": -72.8}, {"word": "hackee", "ll": -72.8}, {"word": "hurrer", "ll": -73.9}, {"word": "hacked", "ll": -73.9}]}, {"turn": 14, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 1, 1, 1, 1, 0], "top_contenders": [{"word": "huchen", "ll": -78.06}, {"word": "hickey", "ll": -79.16}, {"word": "hocked", "ll": -79.16}, {"word": "hocker", "ll": -79.16}, {"word": "hicket", "ll": -79.16}, {"word": "hackie", "ll": -80.26}, {"word": "heuchs", "ll": -80.26}, {"word": "hockey", "ll": -80.26}, {"word": "hounce", "ll": -80.26}, {"word": "herdic", "ll": -80.26}]}, {"turn": 15, "guess": "huchen", "true_fb": [2, 0, 2, 0, 2, 0], "obs_fb": [2, 1, 2, 0, 2, 1], "top_contenders": [{"word": "hickey", "ll": -84.43}, {"word": "hocked", "ll": -84.43}, {"word": "hocker", "ll": -84.43}, {"word": "huchen", "ll": -84.43}, {"word": "hicket", "ll": -84.43}, {"word": "hockey", "ll": -85.52}, {"word": "hounce", "ll": -85.52}, {"word": "hocket", "ll": -85.52}, {"word": "hackee", "ll": -85.52}, {"word": "hackie", "ll": -86.62}]}, {"turn": 16, "guess": "hickey", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [1, 0, 1, 1, 2, 0], "top_contenders": [{"word": "hocked", "ll": -90.79}, {"word": "hocker", "ll": -90.79}, {"word": "huchen", "ll": -90.79}, {"word": "hounce", "ll": -91.89}, {"word": "hanced", "ll": -91.89}, {"word": "hances", "ll": -91.89}, {"word": "hicket", "ll": -91.89}, {"word": "hocket", "ll": -91.89}, {"word": "hackee", "ll": -91.89}, {"word": "hockey", "ll": -92.98}]}, {"turn": 17, "guess": "hocked", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 0, 1, 2, 0, 2], "top_contenders": [{"word": "hocked", "ll": -97.15}, {"word": "hanced", "ll": -97.15}, {"word": "hocker", "ll": -98.25}, {"word": "huchen", "ll": -98.25}, {"word": "hances", "ll": -98.25}, {"word": "hicket", "ll": -98.25}, {"word": "hacked", "ll": -98.25}, {"word": "hackee", "ll": -98.25}, {"word": "hounce", "ll": -99.34}, {"word": "hickey", "ll": -99.34}]}, {"turn": 18, "guess": "hocked", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 0, 2, 2, 2, 0], "top_contenders": [{"word": "hicket", "ll": -101.31}, {"word": "hackee", "ll": -101.31}, {"word": "hocked", "ll": -102.41}, {"word": "hocker", "ll": -102.41}, {"word": "huchen", "ll": -102.41}, {"word": "hickey", "ll": -102.41}, {"word": "hacked", "ll": -102.41}, {"word": "hacker", "ll": -102.41}, {"word": "hanced", "ll": -103.51}, {"word": "hances", "ll": -103.51}]}, {"turn": 19, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 0, 0, 0, 2, 2], "top_contenders": [{"word": "huchen", "ll": -107.67}, {"word": "hicket", "ll": -107.67}, {"word": "hackee", "ll": -107.67}, {"word": "hocked", "ll": -108.77}, {"word": "hocker", "ll": -108.77}, {"word": "hanced", "ll": -108.77}, {"word": "hances", "ll": -108.77}, {"word": "hacked", "ll": -108.77}, {"word": "hacker", "ll": -108.77}, {"word": "hocket", "ll": -108.77}]}, {"turn": 20, "guess": "huchen", "true_fb": [2, 0, 2, 0, 2, 0], "obs_fb": [0, 0, 2, 0, 2, 1], "top_contenders": [{"word": "hicket", "ll": -112.93}, {"word": "hackee", "ll": -112.93}, {"word": "hocked", "ll": -114.03}, {"word": "hocker", "ll": -114.03}, {"word": "hanced", "ll": -114.03}, {"word": "hances", "ll": -114.03}, {"word": "hacked", "ll": -114.03}, {"word": "hacker", "ll": -114.03}, {"word": "hocket", "ll": -114.03}, {"word": "huchen", "ll": -115.13}]}, {"turn": 21, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 2, 0, 0, 0, 0], "top_contenders": [{"word": "hanced", "ll": -120.39}, {"word": "hances", "ll": -120.39}, {"word": "hackee", "ll": -120.39}, {"word": "hicket", "ll": -120.39}, {"word": "hocked", "ll": -121.49}, {"word": "hocker", "ll": -121.49}, {"word": "huchen", "ll": -121.49}, {"word": "hacked", "ll": -121.49}, {"word": "hacker", "ll": -121.49}, {"word": "hickey", "ll": -121.49}]}, {"turn": 22, "guess": "hanced", "true_fb": [2, 2, 0, 1, 2, 0], "obs_fb": [2, 2, 0, 1, 0, 2], "top_contenders": [{"word": "hacked", "ll": -125.66}, {"word": "hackee", "ll": -125.66}, {"word": "hocked", "ll": -126.75}, {"word": "hanced", "ll": -126.75}, {"word": "hacker", "ll": -126.75}, {"word": "hicket", "ll": -126.75}, {"word": "hocker", "ll": -127.85}, {"word": "hances", "ll": -127.85}, {"word": "hickey", "ll": -127.85}, {"word": "huchen", "ll": -128.95}]}, {"turn": 23, "guess": "hacked", "true_fb": [2, 2, 2, 2, 2, 0], "obs_fb": [1, 0, 0, 2, 2, 0], "top_contenders": [{"word": "hackee", "ll": -132.02}, {"word": "hicket", "ll": -132.02}, {"word": "hocked", "ll": -133.11}, {"word": "hocker", "ll": -133.11}, {"word": "hacked", "ll": -133.11}, {"word": "hacker", "ll": -133.11}, {"word": "hickey", "ll": -133.11}, {"word": "hocket", "ll": -134.21}, {"word": "hockey", "ll": -135.31}, {"word": "huchen", "ll": -135.31}]}, {"turn": 24, "guess": "hackee", "true_fb": [2, 2, 2, 2, 2, 0], "obs_fb": [0, 0, 2, 1, 2, 0], "top_contenders": [{"word": "hicket", "ll": -137.28}, {"word": "hocked", "ll": -138.38}, {"word": "hocker", "ll": -138.38}, {"word": "hickey", "ll": -138.38}, {"word": "hacked", "ll": -139.48}, {"word": "hackee", "ll": -139.48}, {"word": "hacker", "ll": -139.48}, {"word": "hocket", "ll": -139.48}, {"word": "hockey", "ll": -140.57}, {"word": "huchen", "ll": -140.57}]}, {"turn": 25, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [0, 2, 2, 2, 2, 2], "top_contenders": [{"word": "hicket", "ll": -141.44}, {"word": "hickey", "ll": -143.64}, {"word": "hocked", "ll": -144.74}, {"word": "hocker", "ll": -144.74}, {"word": "hocket", "ll": -144.74}, {"word": "hacked", "ll": -145.84}, {"word": "hackee", "ll": -145.84}, {"word": "hacker", "ll": -145.84}, {"word": "hockey", "ll": -146.94}, {"word": "huchen", "ll": -148.03}]}, {"turn": 26, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 0, 2, 1, 2, 0], "top_contenders": [{"word": "hicket", "ll": -147.8}, {"word": "hocked", "ll": -148.9}, {"word": "hocker", "ll": -148.9}, {"word": "hickey", "ll": -148.9}, {"word": "hacked", "ll": -150.0}, {"word": "hackee", "ll": -150.0}, {"word": "hacker", "ll": -150.0}, {"word": "hocket", "ll": -150.0}, {"word": "hockey", "ll": -151.1}, {"word": "huchen", "ll": -152.2}]}, {"turn": 27, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 1, 2, 2, 2, 2], "top_contenders": [{"word": "hicket", "ll": -151.97}, {"word": "hocked", "ll": -154.16}, {"word": "hocker", "ll": -154.16}, {"word": "hickey", "ll": -154.16}, {"word": "hocket", "ll": -154.16}, {"word": "hacked", "ll": -155.26}, {"word": "hackee", "ll": -155.26}, {"word": "hacker", "ll": -155.26}, {"word": "hockey", "ll": -156.36}, {"word": "huchen", "ll": -158.56}]}, {"turn": 28, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 0, 1, 1, 2, 1], "top_contenders": [{"word": "hicket", "ll": -159.43}, {"word": "hocked", "ll": -160.52}, {"word": "hocker", "ll": -160.52}, {"word": "hocket", "ll": -160.52}, {"word": "hacked", "ll": -161.62}, {"word": "hackee", "ll": -161.62}, {"word": "hacker", "ll": -161.62}, {"word": "hickey", "ll": -161.62}, {"word": "hockey", "ll": -162.72}, {"word": "huchen", "ll": -164.92}]}, {"turn": 29, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 2, 2, 2, 1, 0], "top_contenders": [{"word": "hicket", "ll": -164.69}, {"word": "hocked", "ll": -165.79}, {"word": "hocker", "ll": -165.79}, {"word": "hickey", "ll": -165.79}, {"word": "hacked", "ll": -166.89}, {"word": "hackee", "ll": -166.89}, {"word": "hacker", "ll": -166.89}, {"word": "hocket", "ll": -166.89}, {"word": "hockey", "ll": -167.98}, {"word": "huchen", "ll": -171.28}]}, {"turn": 30, "guess": "hicket", "true_fb": [2, 0, 2, 2, 2, 0], "obs_fb": [2, 2, 2, 2, 2, 1], "top_contenders": [{"word": "hicket", "ll": -168.85}, {"word": "hickey", "ll": -169.95}, {"word": "hocked", "ll": -171.05}, {"word": "hocker", "ll": -171.05}, {"word": "hacked", "ll": -172.15}, {"word": "hackee", "ll": -172.15}, {"word": "hacker", "ll": -172.15}, {"word": "hocket", "ll": -172.15}, {"word": "hockey", "ll": -173.25}, {"word": "huchen", "ll": -177.64}]}];
+    const totalTurns = 30;
+    let currentTurn = 0;
+
+    const container = document.getElementById('contender-list');
+    let elements = {};
+
+    function getMaxLL(turnData) { return Math.max(1, ...turnData.top_contenders.map(c => c.ll)); }
+    function getMinLL(turnData) { return Math.min(0, ...turnData.top_contenders.map(c => c.ll)); }
+
+    function renderState(turnIdx) {
+        const state = historyData[turnIdx];
+        document.getElementById('turn-num').innerText = state.turn;
+
+        const guessContainer = document.getElementById('guess-tiles');
+        const sensorContainer = document.getElementById('sensor-tiles');
+        guessContainer.innerHTML = '';
+        sensorContainer.innerHTML = '';
+
+        if(state.turn === 0) {
+            // Placeholders based on word length
+            const length = historyData[historyData.length - 1].guess.length || 5;
+            for(let i=0; i<length; i++) {
+                guessContainer.innerHTML += `<div class="tile">?</div>`;
+                sensorContainer.innerHTML += `<div class="tile"></div>`;
+            }
+        } else {
+            for(let i=0; i<state.guess.length; i++) {
+                guessContainer.innerHTML += `<div class="tile">${state.guess[i].toUpperCase()}</div>`;
+                sensorContainer.innerHTML += `<div class="tile color-${state.obs_fb[i]}"></div>`;
+            }
+        }
+
+        const maxLL = getMaxLL(state);
+        let minLL = getMinLL(state);
+        if (minLL < -50) minLL = -50; 
+        const llRange = maxLL - minLL + 1;
+
+        Object.keys(elements).forEach(w => elements[w].dataset.active = "false");
+
+        for(let i=0; i<Math.min(5, state.top_contenders.length); i++) {
+            const item = state.top_contenders[i];
+            const word = item.word;
+            
+            if(!elements[word]) {
+                const div = document.createElement('div');
+                div.className = 'contender-row';
+                div.innerHTML = `
+                    <div class="c-word">${word}</div>
+                    <div class="c-bar-container"><div class="c-bar"></div></div>
+                    <div class="c-ll">0.0</div>
+                `;
+                div.style.transform = `translateY(250px)`;
+                div.style.opacity = '0';
+                container.appendChild(div);
+                elements[word] = div;
+                void div.offsetWidth; 
+            }
+
+            const el = elements[word];
+            el.dataset.active = "true";
+            
+            el.style.transform = `translateY(${i * 48}px)`;
+            el.style.opacity = '1';
+            el.style.zIndex = (100 - i).toString();
+            
+            let rawWidth = ((item.ll - minLL) / llRange) * 100;
+            let barWidth = Math.max(0, Math.min(100, rawWidth));
+            el.querySelector('.c-bar').style.width = barWidth + '%';
+            el.querySelector('.c-ll').innerText = item.ll.toFixed(1);
+        }
+
+        Object.keys(elements).forEach(w => {
+            if(elements[w].dataset.active === "false") {
+                elements[w].style.opacity = '0';
+                elements[w].style.transform = `translateY(250px)`;
+            }
+        });
+
+        document.getElementById('prev-btn').disabled = (currentTurn === 0);
+        document.getElementById('next-btn').disabled = (currentTurn === totalTurns);
+
+        const endState = document.getElementById('end-state');
+        if (currentTurn === totalTurns && totalTurns > 0) {
+            document.getElementById('final-guess').innerText = state.top_contenders[0].word.toUpperCase();
+            endState.style.display = 'block';
+        } else {
+            endState.style.display = 'none';
+        }
+    }
+
+    function goNext() {
+        if(currentTurn < totalTurns) {
+            currentTurn++;
+            renderState(currentTurn);
+        }
+    }
+
+    function goPrev() {
+        if(currentTurn > 0) {
+            currentTurn--;
+            renderState(currentTurn);
+        }
+    }
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') goNext();
+        if (e.key === 'ArrowLeft') goPrev();
+    });
+
+    renderState(0);
+</script>
+</body>
+</html>
