@@ -29,13 +29,30 @@ To tackle this challenge, this framework benchmarks several sophisticated, non-t
 
 ## Key Features
 
-*   **Algorithmic Benchmarking**: Dynamically test advanced search heuristics against huge dictionaries:
-    *   **POMCP**: Partially Observable Monte-Carlo Planning.
-    *   **Greedy Parallel Trie**: Map-Reduce Likelihood (LLR) accumulation traversing a dynamically built prefix-tree.
-    *   **Thompson Sampling**: Multi-armed bandit strategies scaling belief states.
-    *   **GPU-Unique Bins**: `numba` CUDA-accelerated hardware entropy calculators.
-*   **Interactive Web Visualizer**: Includes a fully interactive, lightweight local Web Server (`animate.py`) built directly on the Python Standard Library to visualize the physics tracking and contender logs in real-time.
-*   **Dataset Tooling**: Scripts to dynamically build hyper-common frequency-mapped vocabularies or totally random `n`-length constraints against standard dictionary corpuses.
+### Datasets Used
+
+Normally, Wordle relies on a static target dictionary of 2,315 hand-picked, common 5-letter English words. To rigorously test our algorithms at a much larger computational scale, we generated several expansive experimental datasets:
+- **Valid English Sets:** Datasets of 5, 6, 7, and 8-letter subsets extracted from a massive open-source dictionary, strictly containing thousands of true lexical words.
+- **Random Noise Constraints:** Synthetic datasets of exactly 10,000 randomly assembled strings for sizes 5 through 8. These completely strip away the structural phonetic patterns found in English, forcing the solvers to rely purely on brute mathematical properties.
+
+*We would like to acknowledge [dwyl/english-words](https://github.com/dwyl/english-words) for the foundational open-source English vocabulary.*
+
+### Strategies Used
+
+To solve this challenge under severe feedback uncertainty, this project empirically benchmarks several non-trivial search architectures:
+
+1. **Greedy 1-Step Lookahead (Parallel Trie)** 
+   A high-performance algorithmic engine that mathematically accumulates Sequential Probability Ratio Test (SPRT) bounds. It recursively maps node traversals across a shared prefix trie structure using Python multiprocessing, greedily selecting the active guess that promises the highest immediate information gain.
+
+2. **Thompson Sampling** 
+   A probabilistic multi-armed bandit approach. Instead of definitively picking the mathematically optimal local guess, it recursively scales its belief states and actively samples distributions. This injects strategic variation, actively combatting traps where extreme local minima are created by deceptive overlapping noise probabilities.
+
+3. **GPU-Accelerated Unique Bins** 
+   A strict hardware-accelerated Branch and Bound strategy. It uses `numba`'s JIT compilation to heavily parallelize feedback entropy mappings across CUDA pipelines. It actively scores words based on how cleanly their projected noisy feedback splits the vast remaining search space into uniform buckets.
+
+4. **POMCP (Partially Observable Monte-Carlo Planning)** 
+   A deep search tree protocol utilizing particle filters. Rather than relying on a fixed 1-step lookahead constraint, the POMCP node evaluates thousands of random downstream game histories. It effectively simulates and "plays out" the noisy variant physically in memory to cleanly navigate the partially observable state space before deciding.
+
 
 ## Outputs, Results, Insights
 

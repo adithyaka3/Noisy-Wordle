@@ -1,0 +1,6 @@
+============================================================
+                 NOISY WORDLE TEST SUITE                      
+============================================================
+System: Using dataset 'datasets/english5.json' with 15918 words.
+System: Building Shared Lexical Trie...
+Benchmarking silently over 100 scale factors. Please hold...
