@@ -1,20 +1,6 @@
 import sys
 import json
 import random
-import os
-
-class SuppressOutput:
-    def __init__(self, suppress=True):
-        self.suppress = suppress
-    def __enter__(self):
-        if self.suppress:
-            self.old_stdout = sys.stdout
-            sys.stdout = open(os.devnull, 'w')
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if self.suppress:
-            sys.stdout.close()
-            sys.stdout = self.old_stdout
-
 from strategies.sprt_greedyLL_parallel_trie import play_game as play_game_trie, build_trie
 from strategies.sprt_thompson import play_game as play_game_thompson
 from strategies.sprt_unique_gpu import play_msprt_game as play_game_gpu
@@ -23,7 +9,24 @@ from strategies.pomcp import play_msprt_game as play_game_pomcp
 DATASET_FILE = "datasets/english5.json"
 
 def main():
-    dataset_file = sys.argv[1] if len(sys.argv) > 1 else DATASET_FILE
+    p_correct, p_wrong1, p_wrong2 = 60, 20, 20
+    dataset_file = DATASET_FILE
+    
+    args = sys.argv[1:]
+    if len(args) == 3 and all(float(a) >= 0 for a in args):
+        p_correct, p_wrong1, p_wrong2 = map(float, args)
+    elif len(args) == 4 and all(float(a) >= 0 for a in args[1:]):
+        dataset_file = args[0]
+        p_correct, p_wrong1, p_wrong2 = map(float, args[1:])
+    elif len(args) == 1:
+        dataset_file = args[0]
+
+    p_c = p_correct / 100.0
+    p_w = p_wrong1 / 100.0
+
+    if abs(p_correct + p_wrong1 + p_wrong2 - 100) > 0.01:
+        print("Warning: Probability values do not sum to 100%.")
+
     with open(dataset_file, "r") as f:
         DICTIONARY = json.load(f)
 
@@ -34,6 +37,7 @@ def main():
     print("                 NOISY WORDLE TEST SUITE                      ")
     print("============================================================")
     print(f"System: Using dataset '{dataset_file}' with {len(DICTIONARY)} words.")
+    print(f"System: Noise Model - P(Correct): {p_correct}%, P(Wrong 1): {p_wrong1}%, P(Wrong 2): {p_wrong2}%")
     print("System: Building Shared Lexical Trie...")
     TRIE_ROOT = build_trie(DICTIONARY)
 
@@ -45,30 +49,21 @@ def main():
     }
 
     strategies = [
-        ("1. Greedy Parallel Trie", lambda word: play_game_trie(word, DICTIONARY, TRIE_ROOT, max_turns=MAX_TURNS)),
-        ("2. Thompson Sampling", lambda word: play_game_thompson(word, DICTIONARY, TRIE_ROOT, max_turns=MAX_TURNS)),
-        ("3. GPU Accelerated Unique Bins", lambda word: play_game_gpu(word, DICTIONARY, max_turns=MAX_TURNS)),
-        ("4. POMCP Deep Search", lambda word: play_game_pomcp(word, DICTIONARY, max_turns=MAX_TURNS))
+        ("1. Greedy Parallel Trie", lambda word: play_game_trie(word, DICTIONARY, TRIE_ROOT, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS)),
+        ("2. Thompson Sampling", lambda word: play_game_thompson(word, DICTIONARY, TRIE_ROOT, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS)),
+        ("3. GPU Accelerated Unique Bins", lambda word: play_game_gpu(word, DICTIONARY, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS)),
+        ("4. POMCP Deep Search", lambda word: play_game_pomcp(word, DICTIONARY, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS))
     ]
-
-    if ITERATIONS > 1:
-        print(f"Benchmarking silently over {ITERATIONS} scale factors. Please hold...")
 
     for i in range(1, ITERATIONS + 1):
         target_word = random.choice(DICTIONARY)
-        
-        if ITERATIONS == 1:
-            print("\n\n" + "#" * 60)
-            print(f"ITERATION {i}/{ITERATIONS} - TARGET WORD: {target_word.upper()}")
-            print("#" * 60 + "\n")
-
+        print("\n\n" + "#" * 60)
+        print(f"ITERATION {i}/{ITERATIONS} - TARGET WORD: {target_word.upper()}")
+        print("#" * 60 + "\n")
         
         for name, run_func in strategies:
-            if ITERATIONS == 1:
-                print(f"\n>>> RUNNING STRATEGY: {name} <<<")
-                
-            with SuppressOutput(suppress=(ITERATIONS > 1)):
-                res = run_func(target_word)
+            print(f"\n>>> RUNNING STRATEGY: {name} <<<")
+            res = run_func(target_word)
             
             results[name]["turns"].append(res["turns"])
             results[name]["time"].append(res["time"])

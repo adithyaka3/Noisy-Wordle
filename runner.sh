@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Starting full testing process..."
-# Define all dataset base names
+
 DATASETS=(
     "english5"
     "english6"
@@ -13,10 +13,9 @@ DATASETS=(
     "random8"
 )
 
-# Loop through each and pipe output dynamically
 for dataset in "${DATASETS[@]}"; do
     echo "Running benchmark on datasets/${dataset}.json -> ./outputs/output_${dataset}.txt"
-    python game.py "datasets/${dataset}.json" > "./outputs/output_${dataset}.txt"
+    python -u game.py "datasets/${dataset}.json" | tee "./outputs/output_${dataset}.txt"
 done
 
 echo "All tests completed successfully!"

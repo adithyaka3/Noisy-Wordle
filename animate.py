@@ -13,7 +13,7 @@ from strategies.sprt_greedyLL_parallel_trie import (
     parallel_trie_update, THRESHOLD
 )
 
-def get_game_history(target_word, dictionary, max_turns=100):
+def get_game_history(target_word, dictionary, p_correct=0.6, p_wrong=0.2, max_turns=100):
     """
     Runs an autonomous game using the Greedy LL strategy, 
     but quietly logs every state metric at each turn for animation.
@@ -41,10 +41,10 @@ def get_game_history(target_word, dictionary, max_turns=100):
             
             # Run Physics
             true_fb = calculate_true_feedback(guess, target_word)
-            obs_fb = apply_noise(true_fb)
+            obs_fb = apply_noise(true_fb, p_correct, p_wrong)
             
             # Map-Reduce LLR bounded updates across multicores
-            exact_jumps = parallel_trie_update(trie_root, guess, obs_fb, pool)
+            exact_jumps = parallel_trie_update(trie_root, guess, obs_fb, pool, p_correct, p_wrong)
             for w, jump in exact_jumps.items():
                 word_lls[w] += jump
                 

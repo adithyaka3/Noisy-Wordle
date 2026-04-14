@@ -11,8 +11,8 @@ DATASET_FILE = "wordle_dataset.json"
 # Colorful text representation instead of text
 FEEDBACK_STR = {0: "⬛", 1: "🟨", 2: "🟩"}
 
-P_CORRECT = 0.6
-P_WRONG = 0.2
+P_CORRECT_DEFAULT = 0.6
+P_WRONG_DEFAULT = 0.2
 MAX_ROUND = 100
 
 # SPRT Thresholds
@@ -57,15 +57,15 @@ def calculate_true_feedback(guess, target):
             
     return tuple(feedback)
 
-def apply_noise(true_feedback):
+def apply_noise(true_feedback, p_correct, p_wrong):
     """Applies the symmetric noise."""
     obs_feedback = list(true_feedback)
     for i in range(5):
         r = random.random()
-        if r > P_CORRECT:
+        if r > p_correct:
             # Pick one of the other two colors randomly
             other_colors = [c for c in [0, 1, 2] if c != true_feedback[i]]
-            obs_feedback[i] = other_colors[0] if r < P_CORRECT + P_WRONG else other_colors[1]
+            obs_feedback[i] = other_colors[0] if r < p_correct + p_wrong else other_colors[1]
     return tuple(obs_feedback)
 
 # --- 4. MULTIPLE HYPOTHESIS TESTING ---
@@ -96,9 +96,9 @@ def update_log_likelihoods(ll_dict, guess, obs_fb, dictionary):
         
         for o, t in zip(obs_fb, true_fb):
             if o == t:
-                ll_dict[word] += math.log(P_CORRECT)
+                ll_dict[word] += math.log(p_correct)
             else:
-                ll_dict[word] += math.log(P_WRONG)
+                ll_dict[word] += math.log(p_wrong)
 
 # --- 5. GAME SIMULATION ---
 def play_msprt_game(target_word, dictionary):
@@ -123,7 +123,7 @@ def play_msprt_game(target_word, dictionary):
         t_guess = time.time() - t0
         
         true_fb = calculate_true_feedback(guess, target_word)
-        obs_fb = apply_noise(true_fb)
+        obs_fb = apply_noise(true_fb, p_correct, p_wrong)
         
         print(f"Action:       AI Guesses '{guess.upper()}'")
         print(f"True Signal:  {' '.join([FEEDBACK_STR[c] for c in true_fb])}")
