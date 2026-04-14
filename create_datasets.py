@@ -18,10 +18,10 @@ while len(dataset) < 10000:
 random5 = list(dataset)
 
 # Save datasets
-with open("english5.json", "w") as f:
+with open("datasets/english5.json", "w") as f:
     json.dump(english5, f, indent=4)
 
-with open("english6.json", "w") as f:
+with open("datasets/english6.json", "w") as f:
     json.dump(english6, f, indent=4)
 
 with open("random5.json", "w") as f:

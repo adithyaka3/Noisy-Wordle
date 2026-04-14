@@ -2,12 +2,12 @@ import sys
 import json
 import random
 
-from sprt_greedyLL_parallel_trie import play_game as play_game_trie, build_trie
-from sprt_thompson import play_game as play_game_thompson
-from sprt_unique_gpu import play_msprt_game as play_game_gpu
-from pomcp import play_msprt_game as play_game_pomcp
+from strategies.sprt_greedyLL_parallel_trie import play_game as play_game_trie, build_trie
+from strategies.sprt_thompson import play_game as play_game_thompson
+from strategies.sprt_unique_gpu import play_msprt_game as play_game_gpu
+from strategies.pomcp import play_msprt_game as play_game_pomcp
 
-DATASET_FILE = "english5.json"
+DATASET_FILE = "datasets/english5.json"
 
 def main():
     dataset_file = sys.argv[1] if len(sys.argv) > 1 else DATASET_FILE

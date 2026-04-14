@@ -8,7 +8,7 @@ import numpy as np
 from numba import njit, prange
 
 # --- 1. CONFIGURATION ---
-DATASET_FILE = "english5.json"
+DATASET_FILE = "datasets/english5.json"
 
 FEEDBACK_STR = {0: "[GRAY]", 1: "[YELLOW]", 2: "[GREEN]"}
 

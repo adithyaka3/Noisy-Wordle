@@ -8,7 +8,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from multiprocessing import Pool, cpu_count
 
 # Import the greedy LL parallel trie engine directly
-from sprt_greedyLL_parallel_trie import (
+from strategies.sprt_greedyLL_parallel_trie import (
     build_trie, calculate_true_feedback, apply_noise,
     parallel_trie_update, THRESHOLD
 )
@@ -482,7 +482,7 @@ class VisualizerHandler(BaseHTTPRequestHandler):
             target = req.get('word', '').lower()
             
             length = len(target)
-            dataset_file = f"english{length}.json"
+            dataset_file = f"datasets/english_small_{length}.json"
             
             if not os.path.exists(dataset_file):
                 self.send_response(400)

@@ -22,10 +22,10 @@ random7 = generate_random_words(7)
 random8 = generate_random_words(8)
 
 # Save datasets
-with open("english7.json", "w") as f:
+with open("datasets/english7.json", "w") as f:
     json.dump(english7, f, indent=4)
 
-with open("english8.json", "w") as f:
+with open("datasets/english8.json", "w") as f:
     json.dump(english8, f, indent=4)
 
 with open("random6.json", "w") as f:
