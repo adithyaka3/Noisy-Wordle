@@ -482,7 +482,7 @@ class VisualizerHandler(BaseHTTPRequestHandler):
             target = req.get('word', '').lower()
             
             length = len(target)
-            dataset_file = f"datasets/english_small_{length}.json"
+            dataset_file = f"datasets/english{length}.json"
             
             if not os.path.exists(dataset_file):
                 self.send_response(400)

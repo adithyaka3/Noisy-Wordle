@@ -1,6 +1,19 @@
 import sys
 import json
 import random
+import os
+
+class SuppressOutput:
+    def __init__(self, suppress=True):
+        self.suppress = suppress
+    def __enter__(self):
+        if self.suppress:
+            self.old_stdout = sys.stdout
+            sys.stdout = open(os.devnull, 'w')
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.suppress:
+            sys.stdout.close()
+            sys.stdout = self.old_stdout
 
 from strategies.sprt_greedyLL_parallel_trie import play_game as play_game_trie, build_trie
 from strategies.sprt_thompson import play_game as play_game_thompson
@@ -14,11 +27,11 @@ def main():
     with open(dataset_file, "r") as f:
         DICTIONARY = json.load(f)
 
-    ITERATIONS = 10 # Set the number of test iterations here
+    ITERATIONS = 100 # Set the number of test iterations here
     MAX_TURNS = 100 # Maximum allowed turns before forced timeout
     
     print("============================================================")
-    print("                 NOISY WORDLE BENCHMARK                     ")
+    print("                 NOISY WORDLE TEST SUITE                      ")
     print("============================================================")
     print(f"System: Using dataset '{dataset_file}' with {len(DICTIONARY)} words.")
     print("System: Building Shared Lexical Trie...")
@@ -38,15 +51,24 @@ def main():
         ("4. POMCP Deep Search", lambda word: play_game_pomcp(word, DICTIONARY, max_turns=MAX_TURNS))
     ]
 
+    if ITERATIONS > 1:
+        print(f"Benchmarking silently over {ITERATIONS} scale factors. Please hold...")
+
     for i in range(1, ITERATIONS + 1):
         target_word = random.choice(DICTIONARY)
-        print("\n\n" + "#" * 60)
-        print(f"ITERATION {i}/{ITERATIONS} - TARGET WORD: {target_word.upper()}")
-        print("#" * 60 + "\n")
+        
+        if ITERATIONS == 1:
+            print("\n\n" + "#" * 60)
+            print(f"ITERATION {i}/{ITERATIONS} - TARGET WORD: {target_word.upper()}")
+            print("#" * 60 + "\n")
+
         
         for name, run_func in strategies:
-            print(f"\n>>> RUNNING STRATEGY: {name} <<<")
-            res = run_func(target_word)
+            if ITERATIONS == 1:
+                print(f"\n>>> RUNNING STRATEGY: {name} <<<")
+                
+            with SuppressOutput(suppress=(ITERATIONS > 1)):
+                res = run_func(target_word)
             
             results[name]["turns"].append(res["turns"])
             results[name]["time"].append(res["time"])
