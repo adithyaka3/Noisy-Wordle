@@ -1,0 +1,375 @@
+============================================================
+GAME INITIALIZATION (LINEAR SCAN ALGORITHM)
+Dictionary Size: 10000 words
+Target Word:     EAMIA
+============================================================
+
+--- TURN 01 ---
+Action:       AI Guesses 'ZAUKH'
+True Signal:  [GRAY] [GREEN] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GREEN] [GREEN] [GRAY] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. ZAQFF  | LL:  -2.55
+              2. ZAEFE  | LL:  -2.55
+              3. ZAIBN  | LL:  -2.55
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 127.2086s | Update computed in 0.0175s
+
+--- TURN 02 ---
+Action:       AI Guesses 'AUOGJ'
+True Signal:  [YELLOW] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GREEN] [GRAY] [YELLOW] [GRAY] [YELLOW]
+
+Status:       Top 3 Hypotheses
+              1. ADJOY  | LL:  -7.31
+              2. OATJC  | LL:  -7.31
+              3. AJZBO  | LL:  -7.31
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 128.8246s | Update computed in 0.0179s
+
+--- TURN 03 ---
+Action:       AI Guesses 'XZOTM'
+True Signal:  [GRAY] [GRAY] [GRAY] [GRAY] [YELLOW]
+Noisy Sensor: [GRAY] [GRAY] [GRAY] [GRAY] [YELLOW]
+
+Status:       Top 3 Hypotheses
+              1. MAVJE  | LL: -10.96
+              2. MAYJN  | LL: -10.96
+              3. JAMPD  | LL: -10.96
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 105.4056s | Update computed in 0.0183s
+
+--- TURN 04 ---
+Action:       AI Guesses 'SRIJA'
+True Signal:  [GRAY] [GRAY] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [GRAY] [GRAY] [GRAY] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -14.61
+              2. ACCOA  | LL: -15.71
+              3. AAVYC  | LL: -15.71
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 86.0303s | Update computed in 0.0177s
+
+--- TURN 05 ---
+Action:       AI Guesses 'LWDEA'
+True Signal:  [GRAY] [GRAY] [GRAY] [YELLOW] [GREEN]
+Noisy Sensor: [YELLOW] [YELLOW] [GRAY] [YELLOW] [YELLOW]
+
+Status:       Top 3 Hypotheses
+              1. MAQLE  | LL: -19.36
+              2. AMWFL  | LL: -19.36
+              3. AAMTW  | LL: -20.46
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 55.8461s | Update computed in 0.0179s
+
+--- TURN 06 ---
+Action:       AI Guesses 'AMWFL'
+True Signal:  [YELLOW] [YELLOW] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [GRAY] [GRAY] [YELLOW] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. AFEQC  | LL: -25.21
+              2. ABFVE  | LL: -25.21
+              3. MAQLE  | LL: -26.31
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 16.6293s | Update computed in 0.0182s
+
+--- TURN 07 ---
+Action:       AI Guesses 'CPLBF'
+True Signal:  [GRAY] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [YELLOW] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. MAQLE  | LL: -29.96
+              2. AQEPW  | LL: -29.96
+              3. AEPQN  | LL: -29.96
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 48.6964s | Update computed in 0.0187s
+
+--- TURN 08 ---
+Action:       AI Guesses 'PANQE'
+True Signal:  [GRAY] [GREEN] [GRAY] [GRAY] [YELLOW]
+Noisy Sensor: [GREEN] [GREEN] [GRAY] [GRAY] [YELLOW]
+
+Status:       Top 3 Hypotheses
+              1. ZAELY  | LL: -33.62
+              2. EAWPY  | LL: -33.62
+              3. PAEPS  | LL: -33.62
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 39.9014s | Update computed in 0.0176s
+
+--- TURN 09 ---
+Action:       AI Guesses 'EAWPY'
+True Signal:  [GREEN] [GREEN] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [YELLOW] [GREEN] [GRAY] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. ZAELY  | LL: -37.27
+              2. PAEPS  | LL: -37.27
+              3. OAMEA  | LL: -38.37
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 7.1848s | Update computed in 0.0181s
+
+--- TURN 10 ---
+Action:       AI Guesses 'LEMVA'
+True Signal:  [GRAY] [YELLOW] [GREEN] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [GRAY] [YELLOW] [GRAY] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -43.12
+              2. MAEMG  | LL: -43.12
+              3. PAEPS  | LL: -43.12
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 3.0705s | Update computed in 0.0175s
+
+--- TURN 11 ---
+Action:       AI Guesses 'PMJES'
+True Signal:  [GRAY] [YELLOW] [GRAY] [YELLOW] [GRAY]
+Noisy Sensor: [YELLOW] [GREEN] [GRAY] [YELLOW] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. MAEMG  | LL: -47.87
+              2. OAMEA  | LL: -48.97
+              3. EAMIA  | LL: -48.97
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 3.9358s | Update computed in 0.0179s
+
+--- TURN 12 ---
+Action:       AI Guesses 'EPOMA'
+True Signal:  [GREEN] [GRAY] [GRAY] [YELLOW] [GREEN]
+Noisy Sensor: [GRAY] [GRAY] [GREEN] [YELLOW] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -53.72
+              2. EAMIA  | LL: -53.72
+              3. AMTLA  | LL: -54.82
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 2.9436s | Update computed in 0.0184s
+
+--- TURN 13 ---
+Action:       AI Guesses 'OAMEA'
+True Signal:  [GRAY] [GREEN] [GREEN] [YELLOW] [GREEN]
+Noisy Sensor: [GRAY] [GRAY] [GREEN] [GREEN] [YELLOW]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -59.57
+              2. EAMIA  | LL: -59.57
+              3. MEWHA  | LL: -61.77
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 2.1348s | Update computed in 0.0193s
+
+--- TURN 14 ---
+Action:       AI Guesses 'PMEZY'
+True Signal:  [GRAY] [YELLOW] [YELLOW] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [GRAY] [GRAY] [YELLOW] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -65.42
+              2. EAMIA  | LL: -65.42
+              3. AAMTW  | LL: -66.52
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 1.3524s | Update computed in 0.0177s
+
+--- TURN 15 ---
+Action:       AI Guesses 'LEMVA'
+True Signal:  [GRAY] [YELLOW] [GREEN] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [GRAY] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -69.07
+              2. EAMIA  | LL: -69.07
+              3. NAEUA  | LL: -70.17
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 3.4202s | Update computed in 0.0175s
+
+--- TURN 16 ---
+Action:       AI Guesses 'MZEQO'
+True Signal:  [YELLOW] [GRAY] [YELLOW] [GRAY] [GRAY]
+Noisy Sensor: [YELLOW] [GREEN] [GRAY] [GRAY] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -74.92
+              2. EAMIA  | LL: -74.92
+              3. EFMKA  | LL: -77.12
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 1.3961s | Update computed in 0.0177s
+
+--- TURN 17 ---
+Action:       AI Guesses 'FAZMN'
+True Signal:  [GRAY] [GREEN] [GRAY] [YELLOW] [GRAY]
+Noisy Sensor: [YELLOW] [GREEN] [GREEN] [YELLOW] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -79.67
+              2. EAMIA  | LL: -79.67
+              3. XAZFA  | LL: -80.77
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 1.2079s | Update computed in 0.0177s
+
+--- TURN 18 ---
+Action:       AI Guesses 'WDMFA'
+True Signal:  [GRAY] [GRAY] [GREEN] [GRAY] [GREEN]
+Noisy Sensor: [GREEN] [GRAY] [GREEN] [GRAY] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. OAMEA  | LL: -83.33
+              2. EAMIA  | LL: -83.33
+              3. EFMKA  | LL: -86.62
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.4782s | Update computed in 0.0193s
+
+--- TURN 19 ---
+Action:       AI Guesses 'OKZAA'
+True Signal:  [GRAY] [GRAY] [GRAY] [YELLOW] [GREEN]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [YELLOW] [YELLOW]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -88.08
+              2. OAMEA  | LL: -89.18
+              3. AAMTW  | LL: -90.28
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.1285s | Update computed in 0.0210s
+
+--- TURN 20 ---
+Action:       AI Guesses 'EPKXL'
+True Signal:  [GREEN] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GREEN] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -93.93
+              2. OAMEA  | LL: -95.03
+              3. AAMTW  | LL: -95.03
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0872s | Update computed in 0.0189s
+
+--- TURN 21 ---
+Action:       AI Guesses 'JTPEK'
+True Signal:  [GRAY] [GRAY] [GRAY] [YELLOW] [GRAY]
+Noisy Sensor: [YELLOW] [GREEN] [GRAY] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -99.78
+              2. AAMTW  | LL: -99.78
+              3. OAMEA  | LL: -100.88
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.1767s | Update computed in 0.0179s
+
+--- TURN 22 ---
+Action:       AI Guesses 'RBAJA'
+True Signal:  [GRAY] [GRAY] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [GRAY] [GRAY] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -104.53
+              2. AAMTW  | LL: -104.53
+              3. OAMEA  | LL: -105.63
+
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.3692s | Update computed in 0.0175s
+
+--- TURN 23 ---
+Action:       AI Guesses 'ITMRM'
+True Signal:  [YELLOW] [GRAY] [GREEN] [GRAY] [GRAY]
+Noisy Sensor: [GREEN] [GRAY] [GREEN] [GREEN] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -109.28
+              2. OAMEA  | LL: -110.38
+              3. KAMKK  | LL: -110.38
+
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.3989s | Update computed in 0.0174s
+
+--- TURN 24 ---
+Action:       AI Guesses 'ZEKIW'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GREEN] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GREEN] [GREEN] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -112.93
+              2. OAMEA  | LL: -115.13
+              3. KAMKK  | LL: -116.23
+
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.1764s | Update computed in 0.0176s
+
+--- TURN 25 ---
+Action:       AI Guesses 'NIITK'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [GREEN] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -117.69
+              2. OAMEA  | LL: -120.98
+              3. KAMKK  | LL: -120.98
+
+Metrics:      Current LLR Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0565s | Update computed in 0.0176s
+
+--- TURN 26 ---
+Action:       AI Guesses 'NIITK'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -120.24
+              2. OAMEA  | LL: -124.63
+              3. KAMKK  | LL: -125.73
+
+Metrics:      Current LLR Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0448s | Update computed in 0.0176s
+
+--- TURN 27 ---
+Action:       AI Guesses 'OQUQK'
+True Signal:  [GRAY] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [GREEN] [GRAY] [GREEN] [GREEN]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -126.09
+              2. KAMKK  | LL: -130.48
+              3. OAMEA  | LL: -131.58
+
+Metrics:      Current LLR Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0243s | Update computed in 0.0174s
+
+--- TURN 28 ---
+Action:       AI Guesses 'OQUQK'
+True Signal:  [GRAY] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [YELLOW] [GRAY] [GREEN] [GREEN] [GRAY]
+
+Status:       Top 3 Hypotheses
+              1. EAMIA  | LL: -131.94
+              2. KAMKK  | LL: -137.43
+              3. OAMEA  | LL: -137.43
+
+Metrics:      Current LLR Gap is 5.49 / 4.60
+Performance:  Guess calculated in 0.0234s | Update computed in 0.0173s
+
+============================================================
+RESOLUTION ACHIEVED
+Target identified as EAMIA on Turn 28.
+Total Computation Time: 637.6574 seconds.
+============================================================

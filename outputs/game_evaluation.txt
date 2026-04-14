@@ -1,0 +1,2068 @@
+============================================================
+                 NOISY WORDLE BENCHMARK                     
+============================================================
+System: Using dataset 'english5.json' with 15918 words.
+System: Building Shared Lexical Trie...
+
+
+############################################################
+ITERATION 1/1 - TARGET WORD: ALOIS
+############################################################
+
+
+>>> RUNNING STRATEGY: 1. Greedy Parallel Trie <<<
+============================================================
+GAME INITIALIZATION (PARALLEL TRIE ALGORITHM)
+Dictionary Size: 15918 words
+Target Word:     ALOIS
+Target Gap:      4.60 (99% Confidence)
+============================================================
+System: Booting parallel pool with 20 CPU cores...
+
+--- TURN 01 ---
+Action:       AI Guesses 'AAHED'
+True Signal:  🟩 ⬛ ⬛ ⬛ ⬛
+Noisy Sensor: 🟩 ⬛ 🟨 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AHIND (LL:  -2.55)
+              2. AHOLD (LL:  -2.55)
+              3. ARCHD (LL:  -2.55)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0006s | Update computed in 0.0217s
+
+--- TURN 02 ---
+Action:       AI Guesses 'AHIND'
+True Signal:  🟩 ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: 🟩 🟨 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ANIGH (LL:  -6.21)
+              2. ANKHS (LL:  -7.31)
+              3. ALISH (LL:  -7.31)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0169s
+
+--- TURN 03 ---
+Action:       AI Guesses 'ANIGH'
+True Signal:  🟩 ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: 🟩 ⬛ 🟩 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ANIGH (LL: -10.96)
+              2. ALISH (LL: -10.96)
+              3. AMISH (LL: -10.96)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0173s
+
+--- TURN 04 ---
+Action:       AI Guesses 'ANIGH'
+True Signal:  🟩 ⬛ 🟨 ⬛ ⬛
+Noisy Sensor: 🟩 ⬛ 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALISH (LL: -15.71)
+              2. AMISH (LL: -15.71)
+              3. APISH (LL: -15.71)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0176s
+
+--- TURN 05 ---
+Action:       AI Guesses 'ALISH'
+True Signal:  🟩 🟩 🟨 🟨 ⬛
+Noisy Sensor: 🟩 🟨 🟨 🟨 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. APHIS (LL: -22.66)
+              2. ARILS (LL: -22.66)
+              3. ASHIR (LL: -22.66)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0174s
+
+--- TURN 06 ---
+Action:       AI Guesses 'APHIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ARILS (LL: -25.21)
+              2. AXILS (LL: -25.21)
+              3. ALIFS (LL: -26.31)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0181s
+
+--- TURN 07 ---
+Action:       AI Guesses 'ARILS'
+True Signal:  🟩 ⬛ 🟨 🟨 🟩
+Noisy Sensor: ⬛ ⬛ 🟨 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ABSIS (LL: -31.06)
+              2. AINUS (LL: -31.06)
+              3. AITIS (LL: -31.06)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0221s
+
+--- TURN 08 ---
+Action:       AI Guesses 'ABSIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟨 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ABSIS (LL: -36.91)
+              2. ASSIS (LL: -36.91)
+              3. AINUS (LL: -38.01)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0182s
+
+--- TURN 09 ---
+Action:       AI Guesses 'ABSIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ 🟨 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ASSIS (LL: -40.56)
+              2. ABSIS (LL: -41.66)
+              3. AITIS (LL: -41.66)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0245s
+
+--- TURN 10 ---
+Action:       AI Guesses 'ASSIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟨 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AITIS (LL: -45.32)
+              2. AMVIS (LL: -45.32)
+              3. ASPIS (LL: -45.32)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0204s
+
+--- TURN 11 ---
+Action:       AI Guesses 'AITIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AITIS (LL: -50.07)
+              2. AMVIS (LL: -51.17)
+              3. ASPIS (LL: -51.17)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0006s | Update computed in 0.0190s
+
+--- TURN 12 ---
+Action:       AI Guesses 'AITIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AMVIS (LL: -54.82)
+              2. ASPIS (LL: -54.82)
+              3. ASSIS (LL: -54.82)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0178s
+
+--- TURN 13 ---
+Action:       AI Guesses 'AMVIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟨 ⬛ 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AMVIS (LL: -60.67)
+              2. ASPIS (LL: -60.67)
+              3. ASSIS (LL: -60.67)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0166s
+
+--- TURN 14 ---
+Action:       AI Guesses 'AMVIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AMVIS (LL: -64.32)
+              2. ASPIS (LL: -66.52)
+              3. ASSIS (LL: -66.52)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0162s
+
+--- TURN 15 ---
+Action:       AI Guesses 'AMVIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AMVIS (LL: -69.07)
+              2. ASPIS (LL: -69.07)
+              3. ASSIS (LL: -69.07)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0181s
+
+--- TURN 16 ---
+Action:       AI Guesses 'AMVIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟩 ⬛ 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AMVIS (LL: -73.82)
+              2. ASPIS (LL: -73.82)
+              3. ASSIS (LL: -73.82)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0175s
+
+--- TURN 17 ---
+Action:       AI Guesses 'AMVIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟨 ⬛ ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ASPIS (LL: -78.58)
+              2. ASSIS (LL: -78.58)
+              3. ABSIS (LL: -79.67)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0167s
+
+--- TURN 18 ---
+Action:       AI Guesses 'ASPIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ADDIS (LL: -83.33)
+              2. AEGIS (LL: -83.33)
+              3. AITIS (LL: -83.33)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0172s
+
+--- TURN 19 ---
+Action:       AI Guesses 'ADDIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: ⬛ ⬛ 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ADDIS (LL: -88.08)
+              2. AEGIS (LL: -88.08)
+              3. AITIS (LL: -88.08)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0175s
+
+--- TURN 20 ---
+Action:       AI Guesses 'ADDIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟨 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ADDIS (LL: -92.83)
+              2. AEGIS (LL: -93.93)
+              3. AITIS (LL: -93.93)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0166s
+
+--- TURN 21 ---
+Action:       AI Guesses 'ADDIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ 🟨 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AEGIS (LL: -97.58)
+              2. AITIS (LL: -97.58)
+              3. ALLIS (LL: -97.58)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0177s
+
+--- TURN 22 ---
+Action:       AI Guesses 'AEGIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AITIS (LL: -100.14)
+              2. ALLIS (LL: -100.14)
+              3. ALOIS (LL: -100.14)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0163s
+
+--- TURN 23 ---
+Action:       AI Guesses 'AITIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. AITIS (LL: -104.89)
+              2. ALLIS (LL: -105.99)
+              3. ALOIS (LL: -105.99)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0182s
+
+--- TURN 24 ---
+Action:       AI Guesses 'AITIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ADDIS (LL: -110.74)
+              2. ALLIS (LL: -110.74)
+              3. ALOIS (LL: -110.74)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0193s
+
+--- TURN 25 ---
+Action:       AI Guesses 'ADDIS'
+True Signal:  🟩 ⬛ ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟨 ⬛ 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALLIS (LL: -115.49)
+              2. ALOIS (LL: -115.49)
+              3. ARRIS (LL: -115.49)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0003s | Update computed in 0.0185s
+
+--- TURN 26 ---
+Action:       AI Guesses 'ALLIS'
+True Signal:  🟩 🟩 ⬛ 🟩 🟩
+Noisy Sensor: 🟩 🟨 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -119.14)
+              2. ARRIS (LL: -119.14)
+              3. AURIS (LL: -119.14)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0187s
+
+--- TURN 27 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟨 🟩 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -124.99)
+              2. ARRIS (LL: -126.09)
+              3. AURIS (LL: -126.09)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0182s
+
+--- TURN 28 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -127.54)
+              2. ALLIS (LL: -129.74)
+              3. ARRIS (LL: -130.84)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0181s
+
+--- TURN 29 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟨 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -132.30)
+              2. ALLIS (LL: -133.39)
+              3. ARRIS (LL: -134.49)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0008s | Update computed in 0.0252s
+
+--- TURN 30 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟨 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -137.05)
+              2. ALLIS (LL: -139.24)
+              3. ARRIS (LL: -140.34)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.0005s | Update computed in 0.0223s
+
+--- TURN 31 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -141.80)
+              2. ALLIS (LL: -145.09)
+              3. ARRIS (LL: -147.29)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0178s
+
+--- TURN 32 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟨 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -146.55)
+              2. ALLIS (LL: -150.94)
+              3. ARRIS (LL: -154.24)
+Metric:       Current Leader Gap is 4.39 / 4.60
+Performance:  Guess calculated in 0.0005s | Update computed in 0.0189s
+
+--- TURN 33 ---
+Action:       AI Guesses 'ALOIS'
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses
+              1. ALOIS (LL: -149.10)
+              2. ALLIS (LL: -154.60)
+              3. ARRIS (LL: -158.99)
+Metric:       Current Leader Gap is 5.49 / 4.60
+Performance:  Guess calculated in 0.0004s | Update computed in 0.0198s
+
+============================================================
+RESOLUTION ACHIEVED
+Result: AI has established mathematical dominance.
+Target identified as ALOIS on Turn 33.
+Total Computation Time: 0.6295 seconds.
+The secret word was ALOIS and the model has guessed it correctly!
+============================================================
+
+>>> RUNNING STRATEGY: 2. Thompson Sampling <<<
+============================================================
+GAME INITIALIZATION (THOMPSON SAMPLING ON TRIE)
+Dictionary Size: 15918 words
+Target Word:     ALOIS
+Target Gap:      4.60 (99% Confidence)
+============================================================
+System: Booting parallel pool with 20 CPU cores...
+
+--- TURN 01 ---
+Action:       AI Samples 'ALLOD' [Exploration (Rank #490)]
+True Signal:  🟩 🟩 ⬛ 🟨 ⬛
+Noisy Sensor: 🟩 🟩 🟨 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALAMO (Prob:  0.10% | LL:  -3.65)
+              2. ALISO (Prob:  0.10% | LL:  -3.65)
+              3. ALOES (Prob:  0.10% | LL:  -3.65)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0036s | Update computed in 0.0232s
+
+--- TURN 02 ---
+Action:       AI Samples 'MILKO' [Exploration (Rank #1719)]
+True Signal:  ⬛ 🟨 🟨 ⬛ 🟨
+Noisy Sensor: ⬛ 🟩 🟨 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOES (Prob:  0.30% | LL:  -8.40)
+              2. ALOFT (Prob:  0.30% | LL:  -8.40)
+              3. ALOGY (Prob:  0.30% | LL:  -8.40)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0033s | Update computed in 0.0171s
+
+--- TURN 03 ---
+Action:       AI Samples 'SLONK' [Exploration (Rank #189)]
+True Signal:  🟨 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALONE (Prob:  2.57% | LL: -12.06)
+              2. ALONG (Prob:  2.57% | LL: -12.06)
+              3. CLONK (Prob:  2.57% | LL: -12.06)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0044s | Update computed in 0.0175s
+
+--- TURN 04 ---
+Action:       AI Samples 'ALONG' [Exploration (Rank #2)]
+True Signal:  🟩 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOGY (Prob:  3.12% | LL: -16.81)
+              2. WLOKA (Prob:  3.12% | LL: -16.81)
+              3. CLOAK (Prob:  3.12% | LL: -16.81)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0033s | Update computed in 0.0193s
+
+--- TURN 05 ---
+Action:       AI Samples 'ALOHA' [Exploration (Rank #7)]
+True Signal:  🟩 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 ⬛ ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOGY (Prob:  1.52% | LL: -21.56)
+              2. BLOKE (Prob:  1.52% | LL: -21.56)
+              3. CLOKE (Prob:  1.52% | LL: -21.56)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0033s | Update computed in 0.0191s
+
+--- TURN 06 ---
+Action:       AI Samples 'ELOGE' [Exploration (Rank #5)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟨 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. GLOBY (Prob:  3.92% | LL: -25.21)
+              2. GLORY (Prob:  3.92% | LL: -25.21)
+              3. GLOUT (Prob:  3.92% | LL: -25.21)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0031s | Update computed in 0.0205s
+
+--- TURN 07 ---
+Action:       AI Samples 'GLOST' [Exploration (Rank #16)]
+True Signal:  ⬛ 🟩 🟩 🟨 ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. GLOBY (Prob:  2.55% | LL: -29.96)
+              2. GLORY (Prob:  2.55% | LL: -29.96)
+              3. GLOSS (Prob:  2.55% | LL: -29.96)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0035s | Update computed in 0.0219s
+
+--- TURN 08 ---
+Action:       AI Samples 'GLOME' [Exploration (Rank #64)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob:  3.62% | LL: -32.52)
+              2. CLOAK (Prob:  3.62% | LL: -32.52)
+              3. CLOCK (Prob:  3.62% | LL: -32.52)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0040s | Update computed in 0.0198s
+
+--- TURN 09 ---
+Action:       AI Samples 'SLOCK' [Exploration (Rank #24)]
+True Signal:  🟨 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟨 🟨 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob: 10.70% | LL: -38.37)
+              2. CLOCK (Prob: 10.70% | LL: -38.37)
+              3. FLOCK (Prob: 10.70% | LL: -38.37)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0034s | Update computed in 0.0185s
+
+--- TURN 10 ---
+Action:       AI Samples 'CLONK' [Exploration (Rank #7)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ ⬛ 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob:  3.69% | LL: -45.32)
+              2. CLOCK (Prob:  3.69% | LL: -45.32)
+              3. FLOCK (Prob:  3.69% | LL: -45.32)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0033s | Update computed in 0.0197s
+
+--- TURN 11 ---
+Action:       AI Samples 'SLOSH' [Exploration (Rank #86)]
+True Signal:  🟨 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob:  4.97% | LL: -50.07)
+              2. CLOCK (Prob:  4.97% | LL: -50.07)
+              3. FLOCK (Prob:  4.97% | LL: -50.07)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0031s | Update computed in 0.0190s
+
+--- TURN 12 ---
+Action:       AI Samples 'PLUTO' [Exploration (Rank #208)]
+True Signal:  ⬛ 🟩 ⬛ ⬛ 🟨
+Noisy Sensor: ⬛ 🟩 🟨 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FLOUR (Prob:  5.63% | LL: -53.72)
+              2. BLOCK (Prob:  5.63% | LL: -53.72)
+              3. CLOCK (Prob:  5.63% | LL: -53.72)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0029s | Update computed in 0.0197s
+
+--- TURN 13 ---
+Action:       AI Samples 'FLOWK' [Exploration (Rank #5)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟨 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob:  6.71% | LL: -58.47)
+              2. CLOCK (Prob:  6.71% | LL: -58.47)
+              3. PLOUK (Prob:  6.71% | LL: -58.47)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0215s
+
+--- TURN 14 ---
+Action:       AI Samples 'PLOUK' [Exploration (Rank #3)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟩 ⬛ 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. PLOCK (Prob:  5.96% | LL: -64.32)
+              2. WLOKA (Prob:  5.96% | LL: -64.32)
+              3. BLOCK (Prob:  5.96% | LL: -64.32)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0200s
+
+--- TURN 15 ---
+Action:       AI Samples 'WLOKA' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟨
+Noisy Sensor: ⬛ ⬛ 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. GLOBY (Prob:  3.98% | LL: -70.17)
+              2. GLORY (Prob:  3.98% | LL: -70.17)
+              3. LLOYD (Prob:  3.98% | LL: -70.17)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0188s
+
+--- TURN 16 ---
+Action:       AI Samples 'FLOSH' [Exploration (Rank #15)]
+True Signal:  ⬛ 🟩 🟩 🟨 ⬛
+Noisy Sensor: 🟩 🟩 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FLORY (Prob:  3.56% | LL: -74.92)
+              2. FLOUR (Prob:  3.56% | LL: -74.92)
+              3. BLOCK (Prob:  3.56% | LL: -74.92)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0026s | Update computed in 0.0174s
+
+--- TURN 17 ---
+Action:       AI Samples 'FLOUR' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FLOUR (Prob: 22.19% | LL: -78.58)
+              2. CLOUR (Prob:  7.40% | LL: -79.67)
+              3. PLOUK (Prob:  7.40% | LL: -79.67)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0177s
+
+--- TURN 18 ---
+Action:       AI Samples 'CLOUR' [Exploration (Rank #2)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob: 10.57% | LL: -83.33)
+              2. FLOCK (Prob: 10.57% | LL: -83.33)
+              3. PLOCK (Prob: 10.57% | LL: -83.33)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0172s
+
+--- TURN 19 ---
+Action:       AI Samples 'BLOCK' [Greedy]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. FLOUR (Prob:  5.15% | LL: -88.08)
+              2. CLOKY (Prob:  5.15% | LL: -88.08)
+              3. FLOCK (Prob:  5.15% | LL: -88.08)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0040s | Update computed in 0.0193s
+
+--- TURN 20 ---
+Action:       AI Samples 'FLOOR' [Exploration (Rank #10)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CLOKY (Prob:  7.91% | LL: -90.63)
+              2. LLOYD (Prob:  7.91% | LL: -90.63)
+              3. PLOCK (Prob:  7.91% | LL: -90.63)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0040s | Update computed in 0.0198s
+
+--- TURN 21 ---
+Action:       AI Samples 'PLOUK' [Exploration (Rank #4)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟨 🟩 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CLOCK (Prob:  6.88% | LL: -96.48)
+              2. FLOCK (Prob:  6.88% | LL: -96.48)
+              3. CLOKY (Prob:  6.88% | LL: -96.48)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0035s | Update computed in 0.0191s
+
+--- TURN 22 ---
+Action:       AI Samples 'ILOKO' [Exploration (Rank #10)]
+True Signal:  🟨 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟩 🟨 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. CLOCK (Prob:  9.90% | LL: -101.23)
+              2. FLOCK (Prob:  9.90% | LL: -101.23)
+              3. PLOCK (Prob:  9.90% | LL: -101.23)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0215s
+
+--- TURN 23 ---
+Action:       AI Samples 'ALOID' [Exploration (Rank #13)]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob:  7.70% | LL: -107.08)
+              2. CLOCK (Prob:  7.70% | LL: -107.08)
+              3. FLOCK (Prob:  7.70% | LL: -107.08)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0225s
+
+--- TURN 24 ---
+Action:       AI Samples 'PLOUK' [Exploration (Rank #6)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟨 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 14.83% | LL: -111.84)
+              2. ALOIN (Prob:  4.94% | LL: -112.93)
+              3. ALODY (Prob:  4.94% | LL: -112.93)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0065s | Update computed in 0.0198s
+
+--- TURN 25 ---
+Action:       AI Samples 'ALOID' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 ⬛ 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 61.53% | LL: -115.49)
+              2. ALOIN (Prob:  6.84% | LL: -117.69)
+              3. ALOIS (Prob:  6.84% | LL: -117.69)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Sample computed in 0.0032s | Update computed in 0.0198s
+
+--- TURN 26 ---
+Action:       AI Samples 'ALOID' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 38.78% | LL: -120.24)
+              2. ALOIN (Prob: 12.93% | LL: -121.34)
+              3. ALOIS (Prob: 12.93% | LL: -121.34)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0029s | Update computed in 0.0218s
+
+--- TURN 27 ---
+Action:       AI Samples 'ALOID' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 12.91% | LL: -126.09)
+              2. ALOIN (Prob: 12.91% | LL: -126.09)
+              3. ALOIS (Prob: 12.91% | LL: -126.09)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0212s
+
+--- TURN 28 ---
+Action:       AI Samples 'ALOIS' [Exploration (Rank #3)]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟨 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob:  6.83% | LL: -130.84)
+              2. ALOIN (Prob:  6.83% | LL: -130.84)
+              3. ALOGY (Prob:  6.83% | LL: -130.84)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0024s | Update computed in 0.0166s
+
+--- TURN 29 ---
+Action:       AI Samples 'FLOCK' [Exploration (Rank #5)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 ⬛ 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 10.41% | LL: -135.59)
+              2. ALOIN (Prob: 10.41% | LL: -135.59)
+              3. ALOGY (Prob: 10.41% | LL: -135.59)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0196s
+
+--- TURN 30 ---
+Action:       AI Samples 'ALOIN' [Exploration (Rank #2)]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob:  6.06% | LL: -140.34)
+              2. ALOGY (Prob:  6.06% | LL: -140.34)
+              3. GLOBY (Prob:  6.06% | LL: -140.34)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0197s
+
+--- TURN 31 ---
+Action:       AI Samples 'GLOBY' [Exploration (Rank #3)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟩 🟩 🟩 🟨 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. GLOBY (Prob: 10.45% | LL: -145.09)
+              2. GLOMI (Prob: 10.45% | LL: -145.09)
+              3. LLOYD (Prob: 10.45% | LL: -145.09)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0183s
+
+--- TURN 32 ---
+Action:       AI Samples 'GLOAT' [Exploration (Rank #40)]
+True Signal:  ⬛ 🟩 🟩 🟨 ⬛
+Noisy Sensor: ⬛ 🟨 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. LLOYD (Prob: 16.57% | LL: -149.85)
+              2. ALOID (Prob:  5.52% | LL: -150.94)
+              3. GLOBY (Prob:  5.52% | LL: -150.94)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0023s | Update computed in 0.0177s
+
+--- TURN 33 ---
+Action:       AI Samples 'CLOFF' [Exploration (Rank #27)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟨 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. LLOYD (Prob: 20.15% | LL: -153.50)
+              2. ALOID (Prob:  6.72% | LL: -154.60)
+              3. GLOBY (Prob:  6.72% | LL: -154.60)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0209s
+
+--- TURN 34 ---
+Action:       AI Samples 'GLOBY' [Exploration (Rank #3)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟩 🟨 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. GLOMI (Prob: 15.19% | LL: -159.35)
+              2. ALOID (Prob:  5.06% | LL: -160.45)
+              3. GLOBY (Prob:  5.06% | LL: -160.45)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0026s | Update computed in 0.0217s
+
+--- TURN 35 ---
+Action:       AI Samples 'LLOYD' [Exploration (Rank #9)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. GLOBY (Prob: 13.87% | LL: -164.10)
+              2. GLOMI (Prob: 13.87% | LL: -164.10)
+              3. BLOWY (Prob:  4.62% | LL: -165.20)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0031s | Update computed in 0.0220s
+
+--- TURN 36 ---
+Action:       AI Samples 'GLOBE' [Exploration (Rank #15)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟨 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOWY (Prob: 15.95% | LL: -167.75)
+              2. BLOCK (Prob: 15.95% | LL: -167.75)
+              3. BLOOP (Prob:  5.32% | LL: -168.85)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0024s | Update computed in 0.0201s
+
+--- TURN 37 ---
+Action:       AI Samples 'FLOEY' [Exploration (Rank #87)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob: 20.23% | LL: -171.41)
+              2. BLOOP (Prob:  6.74% | LL: -172.50)
+              3. BLOWY (Prob:  6.74% | LL: -172.50)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0026s | Update computed in 0.0182s
+
+--- TURN 38 ---
+Action:       AI Samples 'GLOMI' [Exploration (Rank #4)]
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟨
+Noisy Sensor: ⬛ ⬛ 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob: 20.05% | LL: -176.16)
+              2. ALOID (Prob:  6.68% | LL: -177.26)
+              3. ALOIN (Prob:  6.68% | LL: -177.26)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0208s
+
+--- TURN 39 ---
+Action:       AI Samples 'BLOOD' [Exploration (Rank #27)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟨 🟨 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. BLOCK (Prob: 23.57% | LL: -180.91)
+              2. ALOIN (Prob:  7.86% | LL: -182.01)
+              3. ALOIS (Prob:  7.86% | LL: -182.01)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0187s
+
+--- TURN 40 ---
+Action:       AI Samples 'ALOIN' [Exploration (Rank #2)]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIN (Prob: 52.58% | LL: -184.56)
+              2. ALOIS (Prob: 17.53% | LL: -185.66)
+              3. ALOID (Prob:  5.84% | LL: -186.76)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0024s | Update computed in 0.0214s
+
+--- TURN 41 ---
+Action:       AI Samples 'BLOWY' [Exploration (Rank #5)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIN (Prob: 58.64% | LL: -188.21)
+              2. ALOIS (Prob: 19.55% | LL: -189.31)
+              3. ALOID (Prob:  6.52% | LL: -190.41)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0181s
+
+--- TURN 42 ---
+Action:       AI Samples 'ALOIN' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 🟨 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIN (Prob: 29.57% | LL: -194.06)
+              2. ALOIS (Prob: 29.57% | LL: -194.06)
+              3. ALOID (Prob:  9.86% | LL: -195.16)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0201s
+
+--- TURN 43 ---
+Action:       AI Samples 'BLOCK' [Exploration (Rank #8)]
+True Signal:  ⬛ 🟩 🟩 ⬛ ⬛
+Noisy Sensor: 🟩 🟩 🟩 ⬛ ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIN (Prob: 30.01% | LL: -197.72)
+              2. ALOIS (Prob: 30.01% | LL: -197.72)
+              3. ALOID (Prob: 10.00% | LL: -198.82)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0173s
+
+--- TURN 44 ---
+Action:       AI Samples 'ALOIN' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: ⬛ 🟩 🟨 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 43.39% | LL: -202.47)
+              2. ALOID (Prob: 14.46% | LL: -203.57)
+              3. ALOIN (Prob: 14.46% | LL: -203.57)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0026s | Update computed in 0.0176s
+
+--- TURN 45 ---
+Action:       AI Samples 'ALOIN' [Exploration (Rank #3)]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIN (Prob: 30.37% | LL: -207.22)
+              2. ALOIS (Prob: 30.37% | LL: -207.22)
+              3. ALOID (Prob: 10.12% | LL: -208.32)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0028s | Update computed in 0.0201s
+
+--- TURN 46 ---
+Action:       AI Samples 'ALOID' [Exploration (Rank #3)]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟨 🟨 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 29.48% | LL: -213.07)
+              2. ALOIN (Prob: 29.48% | LL: -213.07)
+              3. ALOIS (Prob: 29.48% | LL: -213.07)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0224s
+
+--- TURN 47 ---
+Action:       AI Samples 'ALOIN' [Exploration (Rank #2)]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: 🟩 🟩 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOID (Prob: 41.12% | LL: -215.62)
+              2. ALOIS (Prob: 41.12% | LL: -215.62)
+              3. ALOIN (Prob: 13.71% | LL: -216.72)
+Metric:       Current Leader Gap is 0.00 / 4.60
+Performance:  Sample computed in 0.0047s | Update computed in 0.0310s
+
+--- TURN 48 ---
+Action:       AI Samples 'ALOID' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 ⬛
+Noisy Sensor: ⬛ 🟩 🟩 🟩 ⬛
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 57.91% | LL: -219.28)
+              2. ALOID (Prob: 19.30% | LL: -220.37)
+              3. ALOIN (Prob: 19.30% | LL: -220.37)
+Metric:       Current Leader Gap is 1.10 / 4.60
+Performance:  Sample computed in 0.0023s | Update computed in 0.0172s
+
+--- TURN 49 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 ⬛ ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 79.93% | LL: -224.03)
+              2. ALOID (Prob:  8.88% | LL: -226.22)
+              3. ALOIN (Prob:  8.88% | LL: -226.22)
+Metric:       Current Leader Gap is 2.20 / 4.60
+Performance:  Sample computed in 0.0040s | Update computed in 0.0196s
+
+--- TURN 50 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 ⬛ 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 91.07% | LL: -227.68)
+              2. ALOID (Prob:  3.37% | LL: -230.98)
+              3. ALOIN (Prob:  3.37% | LL: -230.98)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Sample computed in 0.0026s | Update computed in 0.0223s
+
+--- TURN 51 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 ⬛ 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 92.22% | LL: -232.43)
+              2. ALOID (Prob:  3.42% | LL: -235.73)
+              3. ALOIN (Prob:  3.42% | LL: -235.73)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Sample computed in 0.0023s | Update computed in 0.0175s
+
+--- TURN 52 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 ⬛ 🟩 🟩 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 92.57% | LL: -237.18)
+              2. ALOID (Prob:  3.43% | LL: -240.48)
+              3. ALOIN (Prob:  3.43% | LL: -240.48)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Sample computed in 0.0025s | Update computed in 0.0184s
+
+--- TURN 53 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟨 🟨
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 91.85% | LL: -241.93)
+              2. ALOID (Prob:  3.40% | LL: -245.23)
+              3. ALOIN (Prob:  3.40% | LL: -245.23)
+Metric:       Current Leader Gap is 3.30 / 4.60
+Performance:  Sample computed in 0.0027s | Update computed in 0.0217s
+
+--- TURN 54 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟨 🟨 🟩 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 97.43% | LL: -246.69)
+              2. ALOID (Prob:  1.20% | LL: -251.08)
+              3. ALOIN (Prob:  1.20% | LL: -251.08)
+Metric:       Current Leader Gap is 4.39 / 4.60
+Performance:  Sample computed in 0.0030s | Update computed in 0.0218s
+
+--- TURN 55 ---
+Action:       AI Samples 'ALOIS' [Greedy]
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟨 ⬛ 🟩 🟩
+Processing:   Running parallel bounds update...
+Status:       Top 3 Hypotheses by Probability
+              1. ALOIS (Prob: 99.17% | LL: -251.44)
+              2. ALOID (Prob:  0.41% | LL: -256.93)
+              3. ALOIN (Prob:  0.41% | LL: -256.93)
+Metric:       Current Leader Gap is 5.49 / 4.60
+Performance:  Sample computed in 0.0026s | Update computed in 0.0181s
+
+============================================================
+RESOLUTION ACHIEVED
+Result: AI has established 99% mathematical dominance.
+Target identified as ALOIS on Turn 55.
+Total Computation Time: 1.2574 seconds.
+The secret word was ALOIS and the model has guessed it correctly!
+============================================================
+
+>>> RUNNING STRATEGY: 3. GPU Accelerated Unique Bins <<<
+============================================================
+GAME INITIALIZATION (NUMBA JIT PARALLEL)
+Dictionary Size: 15918 words
+Target Word:     ALOIS
+============================================================
+System: Encoding dictionary and compiling LLVM Kernels...
+System: Compilation finished in 1.80s
+
+--- TURN 01 ---
+Action:       AI Guesses 'TEARS'
+True Signal:  [GRAY] [GRAY] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [YELLOW] [YELLOW] [GRAY] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. STEWS   | LL:  -2.55
+              2. STIES   | LL:  -2.55
+              3. STYES   | LL:  -2.55
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 2.2620s | Update computed in 0.0001s
+
+--- TURN 02 ---
+Action:       AI Guesses 'PEATS'
+True Signal:  [GRAY] [GRAY] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [GREEN] [GREEN] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. WEANS   | LL:  -8.40
+              2. WEALS   | LL:  -8.40
+              3. BEAUS   | LL:  -8.40
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 2.0874s | Update computed in 0.0002s
+
+--- TURN 03 ---
+Action:       AI Guesses 'MALES'
+True Signal:  [GRAY] [YELLOW] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [YELLOW] [YELLOW] [GREEN] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. SEAMS   | LL: -13.16
+              2. BEAMS   | LL: -13.16
+              3. HOLMS   | LL: -13.16
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 2.0560s | Update computed in 0.0002s
+
+--- TURN 04 ---
+Action:       AI Guesses 'DEALS'
+True Signal:  [GRAY] [GRAY] [YELLOW] [YELLOW] [GREEN]
+Noisy Sensor: [GRAY] [GREEN] [GRAY] [YELLOW] [YELLOW]
+Status:       Top 3 Hypotheses
+              1. HELMS   | LL: -16.81
+              2. YELKS   | LL: -17.91
+              3. MELTS   | LL: -17.91
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.7095s | Update computed in 0.0002s
+
+--- TURN 05 ---
+Action:       AI Guesses 'MONEL'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GRAY] [YELLOW]
+Noisy Sensor: [GREEN] [GRAY] [GRAY] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. HELMS   | LL: -22.66
+              2. FILMS   | LL: -22.66
+              3. CULMS   | LL: -22.66
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.2462s | Update computed in 0.0001s
+
+--- TURN 06 ---
+Action:       AI Guesses 'MILES'
+True Signal:  [GRAY] [YELLOW] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [YELLOW] [YELLOW] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. GLIMS   | LL: -27.41
+              2. SLIMS   | LL: -27.41
+              3. ILLUS   | LL: -27.41
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.3157s | Update computed in 0.0002s
+
+--- TURN 07 ---
+Action:       AI Guesses 'AUMIL'
+True Signal:  [GREEN] [GRAY] [GRAY] [GREEN] [YELLOW]
+Noisy Sensor: [GREEN] [GRAY] [GRAY] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. AWACS   | LL: -33.26
+              2. AWAYS   | LL: -33.26
+              3. AYAHS   | LL: -33.26
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.2571s | Update computed in 0.0002s
+
+--- TURN 08 ---
+Action:       AI Guesses 'SLAIT'
+True Signal:  [YELLOW] [GREEN] [YELLOW] [GREEN] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GREEN] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. LEAFS   | LL: -38.01
+              2. AWAYS   | LL: -38.01
+              3. LOAFS   | LL: -38.01
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.4441s | Update computed in 0.0002s
+
+--- TURN 09 ---
+Action:       AI Guesses 'CORAL'
+True Signal:  [GRAY] [YELLOW] [GRAY] [YELLOW] [YELLOW]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [YELLOW] [GRAY]
+Status:       Top 3 Hypotheses
+              1. AYAHS   | LL: -41.66
+              2. AWAYS   | LL: -41.66
+              3. AZANS   | LL: -42.76
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.2987s | Update computed in 0.0002s
+
+--- TURN 10 ---
+Action:       AI Guesses 'SLOKA'
+True Signal:  [YELLOW] [GREEN] [GREEN] [GRAY] [YELLOW]
+Noisy Sensor: [YELLOW] [GREEN] [YELLOW] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. OFAYS   | LL: -47.51
+              2. OVALS   | LL: -47.51
+              3. LOAFS   | LL: -47.51
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.1204s | Update computed in 0.0002s
+
+--- TURN 11 ---
+Action:       AI Guesses 'GLOEA'
+True Signal:  [GRAY] [GREEN] [GREEN] [GRAY] [YELLOW]
+Noisy Sensor: [GRAY] [GREEN] [GREEN] [YELLOW] [GREEN]
+Status:       Top 3 Hypotheses
+              1. BLOBS   | LL: -53.36
+              2. BLOWS   | LL: -53.36
+              3. FLOSS   | LL: -53.36
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.2037s | Update computed in 0.0002s
+
+--- TURN 12 ---
+Action:       AI Guesses 'GLOEA'
+True Signal:  [GRAY] [GREEN] [GREEN] [GRAY] [YELLOW]
+Noisy Sensor: [GREEN] [GREEN] [GREEN] [GRAY] [YELLOW]
+Status:       Top 3 Hypotheses
+              1. GLOWS   | LL: -58.11
+              2. GLOBS   | LL: -58.11
+              3. GLOSS   | LL: -58.11
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.1509s | Update computed in 0.0001s
+
+--- TURN 13 ---
+Action:       AI Guesses 'ALOFT'
+True Signal:  [GREEN] [GREEN] [GREEN] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [GRAY] [GREEN] [GREEN] [GRAY]
+Status:       Top 3 Hypotheses
+              1. GLOBS   | LL: -62.87
+              2. BLOBS   | LL: -62.87
+              3. BLOWS   | LL: -62.87
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0486s | Update computed in 0.0002s
+
+--- TURN 14 ---
+Action:       AI Guesses 'FLAWY'
+True Signal:  [GRAY] [GREEN] [YELLOW] [GRAY] [GRAY]
+Noisy Sensor: [GREEN] [GREEN] [YELLOW] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -67.62
+              2. FLOWS   | LL: -68.72
+              3. FLOPS   | LL: -68.72
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0317s | Update computed in 0.0003s
+
+--- TURN 15 ---
+Action:       AI Guesses 'SWABS'
+True Signal:  [GRAY] [GRAY] [YELLOW] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [GREEN] [YELLOW] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -72.37
+              2. FLOWS   | LL: -73.47
+              3. FLOSS   | LL: -73.47
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0129s | Update computed in 0.0003s
+
+--- TURN 16 ---
+Action:       AI Guesses 'PFLAG'
+True Signal:  [GRAY] [GRAY] [YELLOW] [YELLOW] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GREEN] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. FLOWS   | LL: -77.12
+              2. FLOSS   | LL: -77.12
+              3. FLOCS   | LL: -77.12
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0128s | Update computed in 0.0002s
+
+--- TURN 17 ---
+Action:       AI Guesses 'FLOWE'
+True Signal:  [GRAY] [GREEN] [GREEN] [GRAY] [GRAY]
+Noisy Sensor: [YELLOW] [YELLOW] [GREEN] [YELLOW] [GRAY]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -82.97
+              2. FLOWS   | LL: -82.97
+              3. FLOCS   | LL: -82.97
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0119s | Update computed in 0.0002s
+
+--- TURN 18 ---
+Action:       AI Guesses 'FLAWY'
+True Signal:  [GRAY] [GREEN] [YELLOW] [GRAY] [GRAY]
+Noisy Sensor: [GREEN] [GREEN] [YELLOW] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -86.62
+              2. FLOCS   | LL: -86.62
+              3. FLOWS   | LL: -87.72
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0103s | Update computed in 0.0002s
+
+--- TURN 19 ---
+Action:       AI Guesses 'ALEFS'
+True Signal:  [GREEN] [GREEN] [GRAY] [GRAY] [GREEN]
+Noisy Sensor: [GRAY] [GREEN] [GREEN] [YELLOW] [GREEN]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -90.28
+              2. FLOCS   | LL: -90.28
+              3. FLOWS   | LL: -91.37
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0050s | Update computed in 0.0001s
+
+--- TURN 20 ---
+Action:       AI Guesses 'FECIT'
+True Signal:  [GRAY] [GRAY] [GRAY] [GREEN] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [YELLOW] [GRAY]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -96.13
+              2. FLOWS   | LL: -97.22
+              3. FLOPS   | LL: -97.22
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0017s | Update computed in 0.0001s
+
+--- TURN 21 ---
+Action:       AI Guesses 'BEFOG'
+True Signal:  [GRAY] [GRAY] [GRAY] [YELLOW] [GRAY]
+Noisy Sensor: [GRAY] [GRAY] [YELLOW] [GRAY] [YELLOW]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -100.88
+              2. FLOGS   | LL: -100.88
+              3. FLOWS   | LL: -101.98
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0029s | Update computed in 0.0002s
+
+--- TURN 22 ---
+Action:       AI Guesses 'AGISM'
+True Signal:  [GREEN] [GRAY] [YELLOW] [YELLOW] [GRAY]
+Noisy Sensor: [GREEN] [GRAY] [YELLOW] [YELLOW] [YELLOW]
+Status:       Top 3 Hypotheses
+              1. FLOWS   | LL: -107.83
+              2. FLOSS   | LL: -107.83
+              3. FLOPS   | LL: -107.83
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0043s | Update computed in 0.0002s
+
+--- TURN 23 ---
+Action:       AI Guesses 'AOIFE'
+True Signal:  [GREEN] [YELLOW] [YELLOW] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [GREEN] [GRAY]
+Status:       Top 3 Hypotheses
+              1. FLOSS   | LL: -111.48
+              2. FLOWS   | LL: -111.48
+              3. FLOPS   | LL: -111.48
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0083s | Update computed in 0.0001s
+
+--- TURN 24 ---
+Action:       AI Guesses 'FOGIE'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GREEN] [GRAY]
+Noisy Sensor: [GRAY] [GREEN] [GRAY] [GREEN] [GREEN]
+Status:       Top 3 Hypotheses
+              1. FLOWS   | LL: -118.43
+              2. FLOSS   | LL: -118.43
+              3. FLOPS   | LL: -118.43
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  Guess calculated in 0.0045s | Update computed in 0.0005s
+
+--- TURN 25 ---
+Action:       AI Guesses 'COMFY'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [YELLOW] [GRAY] [YELLOW]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -123.18
+              2. FLOWS   | LL: -124.28
+              3. FLOSS   | LL: -124.28
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  Guess calculated in 0.0068s | Update computed in 0.0002s
+
+--- TURN 26 ---
+Action:       AI Guesses 'FOPPY'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [GREEN] [GRAY] [YELLOW] [GREEN]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -129.03
+              2. FLOWS   | LL: -131.23
+              3. FLOSS   | LL: -131.23
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.0037s | Update computed in 0.0001s
+
+--- TURN 27 ---
+Action:       AI Guesses 'PFLAG'
+True Signal:  [GRAY] [GRAY] [YELLOW] [YELLOW] [GRAY]
+Noisy Sensor: [GRAY] [GRAY] [YELLOW] [YELLOW] [YELLOW]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -132.68
+              2. GLOMS   | LL: -134.88
+              3. FLOSS   | LL: -137.08
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  Guess calculated in 0.0032s | Update computed in 0.0002s
+
+--- TURN 28 ---
+Action:       AI Guesses 'GAWBY'
+True Signal:  [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [YELLOW] [YELLOW] [GRAY] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -136.33
+              2. GLOMS   | LL: -139.63
+              3. FLOGS   | LL: -140.73
+Metrics:      Current LLR Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0015s | Update computed in 0.0001s
+
+--- TURN 29 ---
+Action:       AI Guesses 'AARGH'
+True Signal:  [GREEN] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GRAY] [YELLOW] [GRAY] [GRAY] [GRAY]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -141.09
+              2. GLOMS   | LL: -144.38
+              3. FLOGS   | LL: -145.48
+Metrics:      Current LLR Gap is 3.30 / 4.60
+Performance:  Guess calculated in 0.0008s | Update computed in 0.0001s
+
+--- TURN 30 ---
+Action:       AI Guesses 'AARGH'
+True Signal:  [GREEN] [GRAY] [GRAY] [GRAY] [GRAY]
+Noisy Sensor: [GREEN] [GRAY] [GREEN] [GRAY] [GREEN]
+Status:       Top 3 Hypotheses
+              1. ALOIS   | LL: -145.84
+              2. ALOES   | LL: -151.33
+              3. GLOMS   | LL: -151.33
+Metrics:      Current LLR Gap is 5.49 / 4.60
+Performance:  Guess calculated in 0.0010s | Update computed in 0.0001s
+
+============================================================
+RESOLUTION ACHIEVED
+Total Computation Time: 9.3292 seconds.
+The secret word was ALOIS and the model has guessed it correctly!
+============================================================
+
+>>> RUNNING STRATEGY: 4. POMCP Deep Search <<<
+============================================================
+GAME INITIALIZATION (POMCP DEEP SEARCH)
+Dictionary Size: 15918 words
+Target Word:     ALOIS
+============================================================
+System: Encoding dictionary and compiling LLVM Kernels...
+System: Compilation finished in 0.81s
+
+--- TURN 01 ---
+Action:       AI Guesses 'BINTS' (Deep Search Visits: 333)
+True Signal:  ⬛ 🟨 ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ ⬛ ⬛ 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. COLTS   | LL:  -5.11
+              2. GOUTS   | LL:  -5.11
+              3. GROTS   | LL:  -5.11
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.8785s | Update computed in 0.0007s
+
+--- TURN 02 ---
+Action:       AI Guesses 'RUSTS' (Deep Search Visits: 332)
+True Signal:  ⬛ ⬛ ⬛ ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. MUSKS   | LL:  -9.86
+              2. PLUGS   | LL:  -9.86
+              3. JUSTS   | LL:  -9.86
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.8741s | Update computed in 0.0024s
+
+--- TURN 03 ---
+Action:       AI Guesses 'SOLUS' (Deep Search Visits: 330)
+True Signal:  ⬛ 🟨 🟨 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. MYOPS   | LL: -13.51
+              2. ZOOKS   | LL: -14.61
+              3. MOSKS   | LL: -14.61
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.7169s | Update computed in 0.0004s
+
+--- TURN 04 ---
+Action:       AI Guesses 'RYOTS' (Deep Search Visits: 334)
+True Signal:  ⬛ ⬛ 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 🟩 ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. CLOYS   | LL: -19.36
+              2. PLOYS   | LL: -19.36
+              3. MYOPS   | LL: -19.36
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6796s | Update computed in 0.0003s
+
+--- TURN 05 ---
+Action:       AI Guesses 'PLOYS' (Deep Search Visits: 351)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. FLOTS   | LL: -23.02
+              2. CLOTS   | LL: -23.02
+              3. CLOYS   | LL: -24.11
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6595s | Update computed in 0.0004s
+
+--- TURN 06 ---
+Action:       AI Guesses 'CLOTS' (Deep Search Visits: 416)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 🟩 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. FLOTS   | LL: -26.67
+              2. PLOTS   | LL: -27.77
+              3. CLOTS   | LL: -27.77
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.5760s | Update computed in 0.0004s
+
+--- TURN 07 ---
+Action:       AI Guesses 'FLOTS' (Deep Search Visits: 1006)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ ⬛ ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOWS   | LL: -34.71
+              2. GLOMS   | LL: -34.71
+              3. FLOTS   | LL: -34.71
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6448s | Update computed in 0.0003s
+
+--- TURN 08 ---
+Action:       AI Guesses 'GLOMS' (Deep Search Visits: 417)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOTS   | LL: -37.27
+              2. CLOTS   | LL: -37.27
+              3. FLOTS   | LL: -37.27
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6379s | Update computed in 0.0004s
+
+--- TURN 09 ---
+Action:       AI Guesses 'BLOTS' (Deep Search Visits: 598)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOWS   | LL: -40.92
+              2. BLOBS   | LL: -40.92
+              3. BLOTS   | LL: -40.92
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6512s | Update computed in 0.0003s
+
+--- TURN 10 ---
+Action:       AI Guesses 'BLOTS' (Deep Search Visits: 714)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 ⬛ 🟨 ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOWS   | LL: -47.87
+              2. BLOBS   | LL: -47.87
+              3. BLOTS   | LL: -47.87
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5881s | Update computed in 0.0003s
+
+--- TURN 11 ---
+Action:       AI Guesses 'BLOBS' (Deep Search Visits: 558)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -52.62
+              2. CLOYS   | LL: -52.62
+              3. KLOPS   | LL: -52.62
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5555s | Update computed in 0.0003s
+
+--- TURN 12 ---
+Action:       AI Guesses 'SLOWS' (Deep Search Visits: 443)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ 🟨 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. CLOYS   | LL: -59.57
+              2. PLOYS   | LL: -59.57
+              3. PLOWS   | LL: -59.57
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6384s | Update computed in 0.0004s
+
+--- TURN 13 ---
+Action:       AI Guesses 'CLOTS' (Deep Search Visits: 427)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -63.22
+              2. CLOYS   | LL: -63.22
+              3. FLOCS   | LL: -63.22
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6533s | Update computed in 0.0029s
+
+--- TURN 14 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 574)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 🟩 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOWS   | LL: -66.88
+              2. FLOWS   | LL: -66.88
+              3. GLOWS   | LL: -66.88
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6179s | Update computed in 0.0004s
+
+--- TURN 15 ---
+Action:       AI Guesses 'FLOWS' (Deep Search Visits: 915)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOWS   | LL: -70.53
+              2. PLOWS   | LL: -70.53
+              3. PLOPS   | LL: -70.53
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6675s | Update computed in 0.0004s
+
+--- TURN 16 ---
+Action:       AI Guesses 'KLOPS' (Deep Search Visits: 599)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOWS   | LL: -74.18
+              2. CLOYS   | LL: -74.18
+              3. KLOPS   | LL: -75.28
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5840s | Update computed in 0.0002s
+
+--- TURN 17 ---
+Action:       AI Guesses 'CLOYS' (Deep Search Visits: 540)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOWS   | LL: -77.83
+              2. KLOPS   | LL: -78.93
+              3. FLOWS   | LL: -78.93
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6454s | Update computed in 0.0004s
+
+--- TURN 18 ---
+Action:       AI Guesses 'GLOWS' (Deep Search Visits: 852)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ ⬛ 🟩 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOWS   | LL: -82.59
+              2. GLOWS   | LL: -82.59
+              3. FLOWS   | LL: -82.59
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.7675s | Update computed in 0.0004s
+
+--- TURN 19 ---
+Action:       AI Guesses 'GLOWS' (Deep Search Visits: 863)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 ⬛ 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOWS   | LL: -88.44
+              2. FLOWS   | LL: -88.44
+              3. BLOWS   | LL: -88.44
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.7007s | Update computed in 0.0005s
+
+--- TURN 20 ---
+Action:       AI Guesses 'FLOWS' (Deep Search Visits: 993)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. KLOPS   | LL: -93.19
+              2. PLOPS   | LL: -93.19
+              3. PLOWS   | LL: -93.19
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.8025s | Update computed in 0.0002s
+
+--- TURN 21 ---
+Action:       AI Guesses 'PLOWS' (Deep Search Visits: 687)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟨 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOES   | LL: -96.84
+              2. ALOIS   | LL: -96.84
+              3. BLOCS   | LL: -97.94
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6725s | Update computed in 0.0003s
+
+--- TURN 22 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 902)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟨 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOES   | LL: -100.49
+              2. BLOCS   | LL: -101.59
+              3. KLOPS   | LL: -101.59
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6278s | Update computed in 0.0005s
+
+--- TURN 23 ---
+Action:       AI Guesses 'ALOES' (Deep Search Visits: 928)
+True Signal:  🟩 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟨 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOES   | LL: -105.24
+              2. ALOIS   | LL: -106.34
+              3. PLOPS   | LL: -107.44
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6614s | Update computed in 0.0004s
+
+--- TURN 24 ---
+Action:       AI Guesses 'ALOES' (Deep Search Visits: 6816)
+True Signal:  🟩 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟨 🟩 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOES   | LL: -109.99
+              2. ALOIS   | LL: -111.09
+              3. ELOPS   | LL: -112.19
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6447s | Update computed in 0.0003s
+
+--- TURN 25 ---
+Action:       AI Guesses 'ALOES' (Deep Search Visits: 12899)
+True Signal:  🟩 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 ⬛ ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOES   | LL: -115.84
+              2. ALOIS   | LL: -115.84
+              3. PLOPS   | LL: -118.04
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.3996s | Update computed in 0.0003s
+
+--- TURN 26 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 4088)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟨 🟩 ⬛ 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOES   | LL: -121.69
+              2. ALOIS   | LL: -121.69
+              3. KLOPS   | LL: -123.89
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5767s | Update computed in 0.0003s
+
+--- TURN 27 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 3689)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: ⬛ 🟩 🟨 🟩 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOIS   | LL: -127.54
+              2. ALOES   | LL: -128.64
+              3. BLOCS   | LL: -129.74
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6125s | Update computed in 0.0005s
+
+--- TURN 28 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 8075)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: ⬛ ⬛ 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOCS   | LL: -133.39
+              2. PLOPS   | LL: -133.39
+              3. KLOPS   | LL: -133.39
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5153s | Update computed in 0.0003s
+
+--- TURN 29 ---
+Action:       AI Guesses 'BLOTS' (Deep Search Visits: 504)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 🟨 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. KLOPS   | LL: -138.15
+              2. PLOPS   | LL: -138.15
+              3. CLOYS   | LL: -138.15
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6249s | Update computed in 0.0002s
+
+--- TURN 30 ---
+Action:       AI Guesses 'SLOBS' (Deep Search Visits: 535)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ ⬛ 🟩 🟨 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOCS   | LL: -142.90
+              2. BLOWS   | LL: -142.90
+              3. CLOYS   | LL: -144.00
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6257s | Update computed in 0.0004s
+
+--- TURN 31 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 1338)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. KLOPS   | LL: -148.75
+              2. PLOPS   | LL: -148.75
+              3. CLOYS   | LL: -148.75
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6014s | Update computed in 0.0002s
+
+--- TURN 32 ---
+Action:       AI Guesses 'ALOES' (Deep Search Visits: 589)
+True Signal:  🟩 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOCS   | LL: -151.30
+              2. PLOPS   | LL: -151.30
+              3. KLOPS   | LL: -151.30
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6757s | Update computed in 0.0003s
+
+--- TURN 33 ---
+Action:       AI Guesses 'PLOPS' (Deep Search Visits: 714)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟩 🟨 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOWS   | LL: -156.05
+              2. CLOYS   | LL: -156.05
+              3. PLOPS   | LL: -156.05
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6462s | Update computed in 0.0004s
+
+--- TURN 34 ---
+Action:       AI Guesses 'BLOCS' (Deep Search Visits: 818)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 ⬛ 🟩 ⬛ ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOWS   | LL: -160.80
+              2. PLOYS   | LL: -161.90
+              3. PLOWS   | LL: -161.90
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.5808s | Update computed in 0.0003s
+
+--- TURN 35 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 3448)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟨 🟩 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOWS   | LL: -164.46
+              2. PLOWS   | LL: -166.65
+              3. BLOCS   | LL: -166.65
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  POMCP sim computed in 0.6543s | Update computed in 0.0004s
+
+--- TURN 36 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 13916)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 ⬛ 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOWS   | LL: -171.41
+              2. PLOWS   | LL: -172.50
+              3. PLOYS   | LL: -172.50
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.3245s | Update computed in 0.0004s
+
+--- TURN 37 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 2924)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 ⬛ 🟨 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. BLOWS   | LL: -178.35
+              2. BLOCS   | LL: -179.45
+              3. PLOPS   | LL: -179.45
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.7371s | Update computed in 0.0004s
+
+--- TURN 38 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 3322)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -183.11
+              2. PLOPS   | LL: -183.11
+              3. PLOWS   | LL: -183.11
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.8896s | Update computed in 0.0004s
+
+--- TURN 39 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 826)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟨 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOWS   | LL: -186.76
+              2. GLOWS   | LL: -187.86
+              3. FLOWS   | LL: -187.86
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.7834s | Update computed in 0.0003s
+
+--- TURN 40 ---
+Action:       AI Guesses 'PLOWS' (Deep Search Visits: 3636)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 🟩 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOWS   | LL: -191.51
+              2. PLOYS   | LL: -192.61
+              3. KLOPS   | LL: -192.61
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6077s | Update computed in 0.0004s
+
+--- TURN 41 ---
+Action:       AI Guesses 'PLOWS' (Deep Search Visits: 3179)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 ⬛ 🟨 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOWS   | LL: -198.46
+              2. FLOWS   | LL: -198.46
+              3. PLOWS   | LL: -198.46
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.7152s | Update computed in 0.0003s
+
+--- TURN 42 ---
+Action:       AI Guesses 'BLOWS' (Deep Search Visits: 853)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟨 🟩 🟨 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOWS   | LL: -204.31
+              2. PLOWS   | LL: -204.31
+              3. FLOWS   | LL: -204.31
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6189s | Update computed in 0.0004s
+
+--- TURN 43 ---
+Action:       AI Guesses 'SLOWS' (Deep Search Visits: 788)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟩 ⬛ ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. SLOWS   | LL: -209.06
+              2. CLOYS   | LL: -210.16
+              3. KLOPS   | LL: -210.16
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6915s | Update computed in 0.0004s
+
+--- TURN 44 ---
+Action:       AI Guesses 'SLOWS' (Deep Search Visits: 1114)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟨 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -213.81
+              2. KLOPS   | LL: -213.81
+              3. PLOPS   | LL: -213.81
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5997s | Update computed in 0.0002s
+
+--- TURN 45 ---
+Action:       AI Guesses 'PLOPS' (Deep Search Visits: 576)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟩 🟨 ⬛ 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -217.46
+              2. PLODS   | LL: -217.46
+              3. PLOWS   | LL: -218.56
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.6764s | Update computed in 0.0002s
+
+--- TURN 46 ---
+Action:       AI Guesses 'PLODS' (Deep Search Visits: 1453)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: 🟩 🟨 ⬛ ⬛ ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -223.31
+              2. PLOPS   | LL: -224.41
+              3. PLOWS   | LL: -224.41
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6447s | Update computed in 0.0003s
+
+--- TURN 47 ---
+Action:       AI Guesses 'PLOYS' (Deep Search Visits: 7489)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 🟩 ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. PLOYS   | LL: -228.06
+              2. CLOYS   | LL: -229.16
+              3. PLOPS   | LL: -230.26
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.5388s | Update computed in 0.0003s
+
+--- TURN 48 ---
+Action:       AI Guesses 'PLOYS' (Deep Search Visits: 10244)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟨 🟩 🟨 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. CLOYS   | LL: -233.91
+              2. PLOYS   | LL: -233.91
+              3. CLONS   | LL: -235.01
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.7193s | Update computed in 0.0004s
+
+--- TURN 49 ---
+Action:       AI Guesses 'PLOYS' (Deep Search Visits: 2525)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 🟨 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. CLOYS   | LL: -238.67
+              2. PLOYS   | LL: -239.76
+              3. CLONS   | LL: -239.76
+Metrics:      Current LLR Gap is 1.10 / 4.60
+Performance:  POMCP sim computed in 0.6960s | Update computed in 0.0004s
+
+--- TURN 50 ---
+Action:       AI Guesses 'CLOYS' (Deep Search Visits: 4819)
+True Signal:  ⬛ 🟩 🟩 ⬛ 🟩
+Noisy Sensor: ⬛ 🟩 🟩 ⬛ ⬛
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. GLOMS   | LL: -243.42
+              2. ALOIS   | LL: -243.42
+              3. PLOYS   | LL: -244.52
+Metrics:      Current LLR Gap is 0.00 / 4.60
+Performance:  POMCP sim computed in 0.5762s | Update computed in 0.0004s
+
+--- TURN 51 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 1420)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 ⬛ 🟩 🟩 🟨
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOIS   | LL: -248.17
+              2. GLOMS   | LL: -250.37
+              3. ALOES   | LL: -250.37
+Metrics:      Current LLR Gap is 2.20 / 4.60
+Performance:  POMCP sim computed in 0.6547s | Update computed in 0.0004s
+
+--- TURN 52 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 13610)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 ⬛ ⬛ 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOIS   | LL: -252.92
+              2. ALOES   | LL: -256.22
+              3. GLOMS   | LL: -257.31
+Metrics:      Current LLR Gap is 3.30 / 4.60
+Performance:  POMCP sim computed in 0.3453s | Update computed in 0.0004s
+
+--- TURN 53 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 14688)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: 🟩 🟩 🟩 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOIS   | LL: -255.47
+              2. ALOES   | LL: -259.87
+              3. GLOMS   | LL: -262.07
+Metrics:      Current LLR Gap is 4.39 / 4.60
+Performance:  POMCP sim computed in 0.1583s | Update computed in 0.0004s
+
+--- TURN 54 ---
+Action:       AI Guesses 'ALOIS' (Deep Search Visits: 14744)
+True Signal:  🟩 🟩 🟩 🟩 🟩
+Noisy Sensor: ⬛ 🟨 🟩 🟩 🟩
+Status:       Top 3 Hypotheses by Log-Likelihood
+              1. ALOIS   | LL: -260.23
+              2. ALOES   | LL: -265.72
+              3. GLOMS   | LL: -266.82
+Metrics:      Current LLR Gap is 5.49 / 4.60
+Performance:  POMCP sim computed in 0.0870s | Update computed in 0.0004s
+
+============================================================
+RESOLUTION ACHIEVED
+Total Computation Time: 33.7471 seconds.
+The secret word was ALOIS and the model has guessed it correctly!
+============================================================
+
+
+================================================================================
+                   FINAL BENCHMARK AVERAGES                 
+                             (Over 1 Iterations)            
+================================================================================
+Strategy                            | Success Rate | Avg Turns  | Avg Time (s)
+--------------------------------------------------------------------------------
+1. Greedy Parallel Trie             |    100.0%   | 33.00      | 0.6295      
+2. Thompson Sampling                |    100.0%   | 55.00      | 1.2574      
+3. GPU Accelerated Unique Bins      |    100.0%   | 30.00      | 9.3292      
+4. POMCP Deep Search                |    100.0%   | 54.00      | 33.7471     
+================================================================================
