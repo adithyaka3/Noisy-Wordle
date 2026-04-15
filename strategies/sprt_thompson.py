@@ -12,8 +12,8 @@ DATASET_FILE = "wordle_dataset.json"
 FEEDBACK_STR = {0: "⬛", 1: "🟨", 2: "🟩"}
 
 # Noise Model: 80% True, 10% Wrong Option A, 10% Wrong Option B
-P_CORRECT = 0.6
-P_WRONG = 0.2
+P_CORRECT_DEFAULT = 0.6
+P_WRONG_DEFAULT = 0.2
 
 MAX_ROUND = 100
 
@@ -60,15 +60,15 @@ def calculate_true_feedback(guess, target):
             
     return tuple(feedback)
 
-def apply_noise(true_feedback):
+def apply_noise(true_feedback, p_correct, p_wrong):
     """Applies the symmetric probability noise model to the feedback."""
     obs_feedback = list(true_feedback)
     word_len = len(true_feedback)
     for i in range(word_len):
         r = random.random()
-        if r > P_CORRECT:
+        if r > p_correct:
             other_colors = [c for c in [0, 1, 2] if c != true_feedback[i]]
-            obs_feedback[i] = other_colors[0] if r < P_CORRECT + P_WRONG else other_colors[1]
+            obs_feedback[i] = other_colors[0] if r < p_correct + p_wrong else other_colors[1]
     return tuple(obs_feedback)
 
 # --- 4. TRIE STRUCTURE ---
@@ -97,7 +97,7 @@ def build_trie(dictionary):
 # --- 5. PARALLEL BFS LOGIC ---
 def bfs_worker(args):
     """Executed by individual CPU cores."""
-    node_dict, guess, obs_fb = args
+    node_dict, guess, obs_fb, p_correct, p_wrong = args
     updates = {}
     
     prefix = node_dict['prefix']
@@ -111,9 +111,9 @@ def bfs_worker(args):
         jump = 0.0
         for o, t in zip(obs_fb, true_fb):
             if o == t:
-                jump += math.log(P_CORRECT)
+                jump += math.log(p_correct)
             else:
-                jump += math.log(P_WRONG)
+                jump += math.log(p_wrong)
         word_jumps[w] = jump
 
     max_jump = max(word_jumps.values()) if word_jumps else 0.0
@@ -130,7 +130,7 @@ def bfs_worker(args):
         
     return updates, word_jumps
 
-def parallel_trie_update(root, guess, obs_fb, pool):
+def parallel_trie_update(root, guess, obs_fb, pool, p_correct, p_wrong):
     """Distributes the Trie subtrees to the multiprocessing pool."""
     tasks = []
     for char, child_node in root.children.items():
@@ -140,7 +140,7 @@ def parallel_trie_update(root, guess, obs_fb, pool):
             'children': [c.prefix for c in child_node.children.values()],
             'll': child_node.ll
         }
-        tasks.append((node_data, guess, obs_fb))
+        tasks.append((node_data, guess, obs_fb, p_correct, p_wrong))
     
     results = pool.map(bfs_worker, tasks)
     
@@ -191,7 +191,7 @@ def thompson_sample(probs_dict):
     return sampled_word
 
 # --- 7. AUTONOMOUS GAME LOOP ---
-def play_game(target_word, dictionary, trie_root, max_turns=100):
+def play_game(target_word, dictionary, trie_root, p_correct=P_CORRECT_DEFAULT, p_wrong=P_WRONG_DEFAULT, max_turns=100):
     print("=" * 60)
     print(f"GAME INITIALIZATION (THOMPSON SAMPLING ON TRIE)")
     print(f"Dictionary Size: {len(dictionary)} words")
@@ -217,7 +217,7 @@ def play_game(target_word, dictionary, trie_root, max_turns=100):
             
             # Simulate environment physics
             true_fb = calculate_true_feedback(guess, target_word)
-            obs_fb = apply_noise(true_fb)
+            obs_fb = apply_noise(true_fb, p_correct, p_wrong)
             
             # Identify if it was a greedy pick or an exploration pick
             ranked = sorted(current_probs.items(), key=lambda x: x[1], reverse=True)
@@ -231,7 +231,7 @@ def play_game(target_word, dictionary, trie_root, max_turns=100):
             # 2. Timing the Update Phase
             print("Processing:   Running parallel bounds update...")
             t1 = time.time()
-            exact_jumps = parallel_trie_update(trie_root, guess, obs_fb, pool)
+            exact_jumps = parallel_trie_update(trie_root, guess, obs_fb, pool, p_correct, p_wrong)
             
             for w, jump in exact_jumps.items():
                 word_lls[w] += jump

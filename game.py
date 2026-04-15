@@ -1,7 +1,6 @@
 import sys
 import json
 import random
-
 from strategies.sprt_greedyLL_parallel_trie import play_game as play_game_trie, build_trie
 from strategies.sprt_thompson import play_game as play_game_thompson
 from strategies.sprt_unique_gpu import play_msprt_game as play_game_gpu
@@ -10,17 +9,35 @@ from strategies.pomcp import play_msprt_game as play_game_pomcp
 DATASET_FILE = "datasets/english5.json"
 
 def main():
-    dataset_file = sys.argv[1] if len(sys.argv) > 1 else DATASET_FILE
+    p_correct, p_wrong1, p_wrong2 = 60, 20, 20
+    dataset_file = DATASET_FILE
+    
+    args = sys.argv[1:]
+    if len(args) == 3 and all(float(a) >= 0 for a in args):
+        p_correct, p_wrong1, p_wrong2 = map(float, args)
+    elif len(args) == 4 and all(float(a) >= 0 for a in args[1:]):
+        dataset_file = args[0]
+        p_correct, p_wrong1, p_wrong2 = map(float, args[1:])
+    elif len(args) == 1:
+        dataset_file = args[0]
+
+    p_c = p_correct / 100.0
+    p_w = p_wrong1 / 100.0
+
+    if abs(p_correct + p_wrong1 + p_wrong2 - 100) > 0.01:
+        print("Warning: Probability values do not sum to 100%.")
+
     with open(dataset_file, "r") as f:
         DICTIONARY = json.load(f)
 
-    ITERATIONS = 10 # Set the number of test iterations here
+    ITERATIONS = 100 # Set the number of test iterations here
     MAX_TURNS = 100 # Maximum allowed turns before forced timeout
     
     print("============================================================")
-    print("                 NOISY WORDLE BENCHMARK                     ")
+    print("                 NOISY WORDLE TEST SUITE                      ")
     print("============================================================")
     print(f"System: Using dataset '{dataset_file}' with {len(DICTIONARY)} words.")
+    print(f"System: Noise Model - P(Correct): {p_correct}%, P(Wrong 1): {p_wrong1}%, P(Wrong 2): {p_wrong2}%")
     print("System: Building Shared Lexical Trie...")
     TRIE_ROOT = build_trie(DICTIONARY)
 
@@ -32,10 +49,10 @@ def main():
     }
 
     strategies = [
-        ("1. Greedy Parallel Trie", lambda word: play_game_trie(word, DICTIONARY, TRIE_ROOT, max_turns=MAX_TURNS)),
-        ("2. Thompson Sampling", lambda word: play_game_thompson(word, DICTIONARY, TRIE_ROOT, max_turns=MAX_TURNS)),
-        ("3. GPU Accelerated Unique Bins", lambda word: play_game_gpu(word, DICTIONARY, max_turns=MAX_TURNS)),
-        ("4. POMCP Deep Search", lambda word: play_game_pomcp(word, DICTIONARY, max_turns=MAX_TURNS))
+        ("1. Greedy Parallel Trie", lambda word: play_game_trie(word, DICTIONARY, TRIE_ROOT, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS)),
+        ("2. Thompson Sampling", lambda word: play_game_thompson(word, DICTIONARY, TRIE_ROOT, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS)),
+        ("3. GPU Accelerated Unique Bins", lambda word: play_game_gpu(word, DICTIONARY, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS)),
+        ("4. POMCP Deep Search", lambda word: play_game_pomcp(word, DICTIONARY, p_correct=p_c, p_wrong=p_w, max_turns=MAX_TURNS))
     ]
 
     for i in range(1, ITERATIONS + 1):

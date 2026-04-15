@@ -12,8 +12,8 @@ DATASET_FILE = "datasets/english5.json"
 
 FEEDBACK_STR = {0: "[GRAY]", 1: "[YELLOW]", 2: "[GREEN]"}
 
-P_CORRECT = 0.6
-P_WRONG = 0.2
+P_CORRECT_DEFAULT = 0.6
+P_WRONG_DEFAULT = 0.2
 MAX_ROUND = 100
 
 ALPHA = 0.01  
@@ -145,11 +145,11 @@ def update_log_likelihoods_numba(dict_matrix, guess_idx, obs_fb_array, ll_array,
                 ll_array[i] += log_p_wrong
 
 # --- 4. GAME PHYSICS (PYTHON BOUNDARY) ---
-def apply_noise(true_feedback):
+def apply_noise(true_feedback, p_correct, p_wrong):
     obs_feedback = list(true_feedback)
     word_len = len(true_feedback)
     for i in range(word_len):
-        if random.random() > P_CORRECT:
+        if random.random() > p_correct:
             other_colors = [c for c in [0, 1, 2] if c != true_feedback[i]]
             obs_feedback[i] = other_colors[0] if random.random() < 0.5 else other_colors[1]
     return tuple(obs_feedback)
@@ -172,7 +172,7 @@ def calculate_true_feedback_py(guess_str, target_str):
     return tuple(feedback)
 
 # --- 5. GAME SIMULATION ---
-def play_msprt_game(target_word, dictionary, max_turns=100):
+def play_msprt_game(target_word, dictionary, p_correct=P_CORRECT_DEFAULT, p_wrong=P_WRONG_DEFAULT, max_turns=100):
     print("=" * 60)
     print(f"GAME INITIALIZATION (NUMBA JIT PARALLEL)")
     print(f"Dictionary Size: {len(dictionary)} words")
@@ -189,7 +189,7 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
     # Trigger a dummy run to force Numba to compile the C-code before the clock starts
     if len(dictionary) > 0:
         find_best_discriminator_numba(dict_matrix[:10], np.array([0], dtype=np.int32))
-        update_log_likelihoods_numba(dict_matrix[:10], 0, np.zeros(word_len, dtype=np.int8), np.zeros(10, dtype=np.float64), P_CORRECT, P_WRONG)
+        update_log_likelihoods_numba(dict_matrix[:10], 0, np.zeros(word_len, dtype=np.int8), np.zeros(10, dtype=np.float64), p_correct, p_wrong)
     print(f"System: Compilation finished in {time.time() - t_compile_start:.2f}s\n")
     
     total_game_time = 0.0
@@ -217,7 +217,7 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
         
         # --- PHYSICS PHASE ---
         true_fb = calculate_true_feedback_py(guess, target_word)
-        obs_fb = apply_noise(true_fb)
+        obs_fb = apply_noise(true_fb, p_correct, p_wrong)
         
         print(f"Action:       AI Guesses '{guess.upper()}'")
         print(f"True Signal:  {' '.join([FEEDBACK_STR[c] for c in true_fb])}")
@@ -226,7 +226,7 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
         # --- UPDATE PHASE ---
         t1 = time.time()
         obs_fb_array = np.array(obs_fb, dtype=np.int8)
-        update_log_likelihoods_numba(dict_matrix, best_idx, obs_fb_array, ll_array, P_CORRECT, P_WRONG)
+        update_log_likelihoods_numba(dict_matrix, best_idx, obs_fb_array, ll_array, p_correct, p_wrong)
         t_update = time.time() - t1
         
         total_game_time += (t_guess + t_update)

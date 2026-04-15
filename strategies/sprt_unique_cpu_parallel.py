@@ -8,8 +8,8 @@ from multiprocessing import Pool, cpu_count
 
 DATASET_FILE = "wordle_dataset.json"
 FEEDBACK_STR = {0: "⬛", 1: "🟨", 2: "🟩"}
-P_CORRECT = 0.6
-P_WRONG = 0.2
+P_CORRECT_DEFAULT = 0.6
+P_WRONG_DEFAULT = 0.2
 MAX_ROUND = 100
 ALPHA = 0.01
 THRESHOLD = math.log((1 - ALPHA) / ALPHA)
@@ -27,13 +27,13 @@ def calculate_true_feedback(guess, target):
             target_counts[guess[i]] -= 1
     return tuple(feedback)
 
-def apply_noise(true_feedback):
+def apply_noise(true_feedback, p_correct, p_wrong):
     obs_feedback = list(true_feedback)
     for i in range(5):
         r = random.random()
-        if r > P_CORRECT:
+        if r > p_correct:
             other_colors = [c for c in [0, 1, 2] if c != true_feedback[i]]
-            obs_feedback[i] = other_colors[0] if r < P_CORRECT + P_WRONG else other_colors[1]
+            obs_feedback[i] = other_colors[0] if r < p_correct + p_wrong else other_colors[1]
     return tuple(obs_feedback)
 
 # ---------------------------------------------------------
@@ -61,7 +61,7 @@ def build_trie(dictionary):
     return root
 
 def bfs_worker(args):
-    node_dict, guess, obs_fb = args
+    node_dict, guess, obs_fb, p_correct, p_wrong = args
     updates = {}
     
     prefix = node_dict['prefix']
@@ -75,9 +75,9 @@ def bfs_worker(args):
         jump = 0.0
         for o, t in zip(obs_fb, true_fb):
             if o == t:
-                jump += math.log(P_CORRECT)
+                jump += math.log(p_correct)
             else:
-                jump += math.log(P_WRONG)
+                jump += math.log(p_wrong)
         word_jumps[w] = jump
 
     max_jump = max(word_jumps.values()) if word_jumps else 0.0
@@ -94,7 +94,7 @@ def bfs_worker(args):
         
     return updates, word_jumps
 
-def parallel_trie_update(root, guess, obs_fb, pool):
+def parallel_trie_update(root, guess, obs_fb, pool, p_correct, p_wrong):
     tasks = []
     for char, child_node in root.children.items():
         node_data = {
@@ -103,7 +103,7 @@ def parallel_trie_update(root, guess, obs_fb, pool):
             'children': [c.prefix for c in child_node.children.values()],
             'll': child_node.ll
         }
-        tasks.append((node_data, guess, obs_fb))
+        tasks.append((node_data, guess, obs_fb, p_correct, p_wrong))
     
     results = pool.map(bfs_worker, tasks)
     
@@ -167,7 +167,7 @@ def parallel_discriminator_guess(ll_dict, dictionary, pool):
 # ---------------------------------------------------------
 # AUTONOMOUS GAME LOOP
 # ---------------------------------------------------------
-def play_game(target_word, dictionary, trie_root):
+def play_game(target_word, dictionary, trie_root, p_correct=P_CORRECT_DEFAULT, p_wrong=P_WRONG_DEFAULT, max_turns=100):
     print("=" * 60)
     print(f"GAME INITIALIZATION (PARALLEL DISCRIMINATOR TRIE ALGORITHM)")
     print(f"Dictionary Size: {len(dictionary)} words")
@@ -182,7 +182,7 @@ def play_game(target_word, dictionary, trie_root):
     print(f"System: Booting parallel pool with {cores} CPU cores...")
     
     with Pool(processes=cores) as pool:
-        for turn in range(1, MAX_ROUND):
+        for turn in range(1, max_turns + 1):
             print(f"\n--- TURN {turn:02d} ---")
             
             t0 = time.time()
@@ -190,7 +190,7 @@ def play_game(target_word, dictionary, trie_root):
             t_guess = time.time() - t0
             
             true_fb = calculate_true_feedback(guess, target_word)
-            obs_fb = apply_noise(true_fb)
+            obs_fb = apply_noise(true_fb, p_correct, p_wrong)
             
             print(f"Action:       AI Guesses '{guess.upper()}'")
             print(f"True Signal:  {' '.join([FEEDBACK_STR[c] for c in true_fb])}")
@@ -198,7 +198,7 @@ def play_game(target_word, dictionary, trie_root):
             
             print("Processing:   Running parallel bounds update...")
             t1 = time.time()
-            exact_jumps = parallel_trie_update(trie_root, guess, obs_fb, pool)
+            exact_jumps = parallel_trie_update(trie_root, guess, obs_fb, pool, p_correct, p_wrong)
             
             for w, jump in exact_jumps.items():
                 word_lls[w] += jump

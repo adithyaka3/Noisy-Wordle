@@ -11,8 +11,8 @@ from numba import njit, prange
 DATASET_FILE = "datasets/english5.json"
 FEEDBACK_STR = {0: "⬛", 1: "🟨", 2: "🟩"}
 
-P_CORRECT = 0.6
-P_WRONG = 0.2
+P_CORRECT_DEFAULT = 0.6
+P_WRONG_DEFAULT = 0.2
 MAX_ROUND = 100
 
 ALPHA = 0.01  
@@ -206,11 +206,11 @@ def calculate_true_feedback_py(guess_str, target_str):
             
     return tuple(feedback)
 
-def apply_noise(true_feedback):
+def apply_noise(true_feedback, p_correct, p_wrong):
     obs_feedback = list(true_feedback)
     word_len = len(true_feedback)
     for i in range(word_len):
-        if random.random() > P_CORRECT:
+        if random.random() > p_correct:
             other_colors = [c for c in [0, 1, 2] if c != true_feedback[i]]
             obs_feedback[i] = other_colors[0] if random.random() < 0.5 else other_colors[1]
     return tuple(obs_feedback)
@@ -236,7 +236,7 @@ def get_particles(ll_array, num_particles):
     return particles
 
 # --- 6. AUTONOMOUS GAME LOOP ---
-def play_msprt_game(target_word, dictionary, max_turns=100):
+def play_msprt_game(target_word, dictionary, p_correct=P_CORRECT_DEFAULT, p_wrong=P_WRONG_DEFAULT, max_turns=100):
     print("=" * 60)
     print(f"GAME INITIALIZATION (POMCP DEEP SEARCH)")
     print(f"Dictionary Size: {len(dictionary)} words")
@@ -251,8 +251,8 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
     
     # Dummy run to force JIT compilation
     if len(dictionary) > 1:
-        generate_noisy_obs_numba(dict_matrix[0], dict_matrix[1], P_CORRECT, P_WRONG)
-        update_ll_numba(dict_matrix, 0, 0, ll_array, P_CORRECT, P_WRONG)
+        generate_noisy_obs_numba(dict_matrix[0], dict_matrix[1], p_correct, p_wrong)
+        update_ll_numba(dict_matrix, 0, 0, ll_array, p_correct, p_wrong)
     print(f"System: Compilation finished in {time.time() - t_compile_start:.2f}s\n")
     
     total_game_time = 0.0
@@ -276,7 +276,7 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
         # Run Monte Carlo Tree Search
         root = HistoryNode()
         for p in particles:
-            simulate(p, root, 0, legal_actions, dict_matrix, P_CORRECT, P_WRONG)
+            simulate(p, root, 0, legal_actions, dict_matrix, p_correct, p_wrong)
             
         # Extract Best Action (Robust selection based on most tree visits)
         best_a = -1
@@ -292,7 +292,7 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
         
         # --- PHYSICS PHASE ---
         true_fb = calculate_true_feedback_py(guess, target_word)
-        obs_fb = apply_noise(true_fb)
+        obs_fb = apply_noise(true_fb, p_correct, p_wrong)
         
         print(f"Action:       AI Guesses '{guess.upper()}' (Deep Search Visits: {max_visits})")
         print(f"True Signal:  {' '.join([FEEDBACK_STR[c] for c in true_fb])}")
@@ -301,7 +301,7 @@ def play_msprt_game(target_word, dictionary, max_turns=100):
         # --- UPDATE PHASE ---
         t1 = time.time()
         obs_int = pack_tuple_to_int(obs_fb)
-        update_ll_numba(dict_matrix, guess_idx, obs_int, ll_array, P_CORRECT, P_WRONG)
+        update_ll_numba(dict_matrix, guess_idx, obs_int, ll_array, p_correct, p_wrong)
         t_update = time.time() - t1
         
         total_game_time += (t_guess + t_update)
