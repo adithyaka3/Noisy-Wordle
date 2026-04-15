@@ -1,0 +1,125 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb} % Added for mathbb
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{xcolor} 
+
+% --- TITLE PAGE SETUP ---
+\title{\textbf{Noisy Wordle}\\ \large Adaptive algorithms and analysis}
+\author{
+    \textbf{Team Name:} Team \textcolor{red}{Confident Guessers}\\
+    \textbf{Team Number:} 4\\
+    \textbf{Team Members:} L Sai Harsh, Rolla Siddharth Reddy, Adithya K Anil
+}
+\date{April 16, 2026} % Updated to match the presentation
+
+\begin{document}
+
+\maketitle
+
+% --- 1. INTRODUCTION ---
+\section{Introduction} 
+Standard Wordle operates under perfect information: the feedback received after each guess is deterministic and progressively reduces the hypothesis space. In this project, we relax that assumption by introducing a symmetric noisy channel into the game environment, allowing feedback to be corrupted with some probability. This transforms the problem into one of decision-making under uncertainty.
+
+We model the resulting system as a Partially Observable Markov Decision Process (POMDP), where the true state (the hidden target word) is not directly observable and must be inferred from noisy observations. Within this framework, we evaluate how different decision-making algorithms perform when faced with imperfect information.
+
+\textcolor{red}{TODO: Add 1-2 sentences summarizing the most exciting finding from your custom dictionary tests to act as a "hook" for the reader.}
+
+% --- 2. METHODS ---
+\section{Methods}
+
+\subsection{The Noisy Environment Model}
+The standard Wordle setup uses a dictionary of five-letter English words, comprising approximately 13,000 entries. To conduct a more rigorous evaluation, we extend this setting by considering multiple datasets with varying structural properties. Specifically, we evaluate our algorithms on:
+
+\begin{itemize}
+\item English words of lengths 5, 6, 7, and 8
+\item Randomly generated words of lengths 5, 6, 7, and 8
+\end{itemize}
+
+This expanded dataset enables a more comprehensive analysis of algorithmic performance across different vocabulary structures. In particular, it allows us to investigate how factors such as word length and inherent linguistic patterns influence the efficiency and robustness of inference under noisy feedback.
+
+We introduced a probabilistic noise matrix. For a given noise configuration (e.g., $80/10/10$), every observed tile has an $80\%$ chance of returning the true deterministic feedback (Green, Yellow, or Gray). There is a $20\%$ chance of corruption, uniformly distributed ($10\%$ each) between the two incorrect states. This noise generation framework is highly modular, meaning the noise percentages and distribution logic can be easily extended or modified for future testing.
+
+\subsection{Theoretical Limits and Information Bounds}
+To evaluate the optimality of our algorithms, we must establish the theoretical lower bound on the expected number of queries $\mathbb{E}[T]$ required to identify the hidden word $w^*$ with an error probability bounded by $\delta$, such that $\mathbb{P}(\hat{w} \neq w^*) \leq \delta$.
+
+Learning in this environment is formalized as the accumulation of evidence via the log-likelihood ratio between competing hypotheses:
+$$Z_t(i,j) = \log \frac{L_t(w_i)}{L_t(w_j)}$$
+
+The expected increment of this ratio per query is equivalent to the Kullback-Leibler (KL) divergence between the observation distributions:
+$$\mathbb{E}[Z_{t+1} - Z_t] = D_{KL}(P(\cdot|g_t, w_i) || P(\cdot|g_t, w_j))$$
+
+To guarantee correctness within the error margin, the likelihood ratio must satisfy $Z_T(i,j) \geq \log(1/\delta)$ for all alternative words $j \neq i$. By defining the worst-case information rate $C_i$ for a target word $w_i$ as:
+$$C_i := \max_g \min_{j \neq i} D_{KL}(P(\cdot|g, w_i) || P(\cdot|g, w_j))$$
+
+We derive the information-theoretic lower bound on the expected number of queries:
+$$\mathbb{E}_i[T] \geq \frac{\log(1/\delta)}{C_i}$$
+
+Algorithms that actively attempt to separate the hardest competitors, such as those following a Chernoff Policy to maximize this worst-case information gain, will asymptotically approach this theoretical lower limit.
+
+\subsection{Algorithmic Approaches}
+To navigate this uncertainty and approach the theoretical bounds, we evaluated the following methods:
+\begin{itemize}
+    \item \textbf{Greedy Parallel Trie (Branch \& Bound):} Organizes the dictionary into a prefix tree to share evaluations across words. Subtrees are aggressively pruned based on upper bounds of log-likelihoods, allowing real-time processing of massive vocabularies.
+    \item \textbf{Thompson Sampling:} \textcolor{red}{TODO: Describe how this algorithm treats the search space as a Multi-Armed Bandit, sampling from prior distributions to balance exploration and exploitation.}
+    \item \textbf{GPU Accelerated Unique Bins:} \textcolor{red}{TODO: Explain the parallelization strategy and tensor operations used to achieve the highly efficient 13-turn average.}
+    \item \textbf{POMCP Deep Search:} A Monte Carlo Tree Search variant tailored for POMDPs, utilizing UCB1 to balance deep search rollouts under uncertainty. \textcolor{red}{TODO: Add a sentence about how you tuned the rollout depth or exploration constant.}
+\end{itemize}
+
+% --- 3. RESULTS ---
+\section{Results}
+
+To rigorously analyze performance, we simulated batches of 100 games across multiple parameters. We evaluated the algorithms on two primary axes: Sample Efficiency (Average Turns) and Computational Cost (Average Time in seconds).
+
+\subsection{Algorithm Benchmarking}
+Initial benchmarks (Table \ref{tab:benchmarks}) revealed stark differences in computational paradigms. While the Greedy Parallel Trie was computationally efficient ($0.54$s), it suffered in sample efficiency ($31.00$ turns). Conversely, GPU Accelerated Unique Bins required more compute overhead ($3.19$s) but drastically reduced the required turns to $13.00$.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lccc}
+        \toprule
+        \textbf{Strategy} & \textbf{Success Rate} & \textbf{Avg Turns} & \textbf{Avg Time (s)} \\
+        \midrule
+        Greedy Parallel Trie & $100.0\%$ & $31.00$ & $0.5432$ \\
+        Thompson Sampling & $100.0\%$ & $21.00$ & $0.4423$ \\
+        GPU Accelerated Unique Bins & $100.0\%$ & $13.00$ & $3.1942$ \\
+        POMCP Deep Search & $100.0\%$ & $24.00$ & $16.4053$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Benchmark averages over 1 iteration. \textcolor{red}{TODO: Update these numbers with the final 100-game simulation averages.}}
+    \label{tab:benchmarks}
+\end{table}
+
+\subsection{Convergence Analysis}
+\textcolor{red}{TODO: Insert a convergence plot for EACH of the four algorithms. Track a metric such as remaining search space, entropy, or confidence over the number of turns. Discuss which algorithm converges the fastest toward the theoretical limit and which struggles most with early-turn noise.}
+
+\subsection{The Impact of Noise (100-Game Simulations)}
+\textcolor{red}{TODO: Insert a figure here (e.g., a $2 \times 2$ grid using \textbackslash subplots) showing the guess distribution histograms for the 100 games for EACH of the four algorithms.}
+
+By scaling to 100-game simulations, we mapped the distribution of required guesses as a function of noise. \textcolor{red}{TODO: Describe the histogram results. Did the distributions widen for specific algorithms? At what noise percentage did solvers fail to converge?}
+
+\subsection{Scaling Across Word Lengths and Dictionaries}
+Expanding the search space beyond 5-letter words introduced exponential complexity. To test whether the models could identify and exploit underlying orthographic patterns, we varied both the word lengths and the dictionary sources.
+
+\textcolor{red}{TODO: Insert comparison plots between the different word lengths (5, 6, 7, and 8 letters) to show how computational time and average turns scale with length.}
+
+\vspace{0.5cm}
+\noindent\textbf{5-Letter and 6-Letter Analysis:}\\
+\textcolor{red}{TODO: Insert comparison plots for 5 and 6-letter words comparing the three dictionary types: Actual vs. Custom vs. Custom Short. Discuss whether the algorithms adapted to the language patterns differently across these sets.}
+
+\vspace{0.5cm}
+\noindent\textbf{7-Letter and 8-Letter Analysis:}\\
+\textcolor{red}{TODO: Insert comparison plots for 7 and 8-letter words comparing the two dictionary types: Actual vs. Custom. Discuss the impact of massive search spaces on the heuristics.}
+
+% --- 4. CONCLUSION ---
+\section{Conclusion}
+This project successfully demonstrated the transition of a deterministic puzzle into a complex data analytics problem. By anchoring our analysis in Kullback-Leibler bounds, we quantified the efficiency of our solvers against theoretical limits. \textcolor{red}{TODO: Rewrite this conclusion based on what your actual data shows. Mention which algorithm ultimately "won" the trade-off between speed and accuracy. Summarize your findings on how well the models learned custom language patterns across the different dictionary splits.}
+
+\end{document}
