@@ -13,7 +13,7 @@ from strategies.sprt_greedyLL_parallel_trie import (
     parallel_trie_update, THRESHOLD
 )
 
-def get_game_history(target_word, dictionary, p_correct=0.6, p_wrong=0.2, max_turns=100):
+def get_game_history(target_word, dictionary, p_correct=0.95, p_wrong=0.025, max_turns=100):
     """
     Runs an autonomous game using the Greedy LL strategy, 
     but quietly logs every state metric at each turn for animation.
@@ -108,13 +108,39 @@ HTML_PAGE = """
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
-        .input-bar input {
+        .input-bar input[type="text"] {
             padding: 8px;
             font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 4px;
             flex-grow: 1;
+            min-width: 140px;
+        }
+        .noise-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .noise-group label {
+            font-weight: bold;
+            color: #475569;
+            font-size: 0.95em;
+        }
+        .noise-group input[type="number"] {
+            width: 60px;
+            padding: 8px 6px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .noise-hint {
+            font-size: 0.78em;
+            color: #64748b;
+            font-style: italic;
         }
         .input-bar button {
             background: #4a90e2;
@@ -276,6 +302,11 @@ HTML_PAGE = """
     <div class="input-bar">
         <label style="font-weight: bold; color: #475569;">Target Word:</label>
         <input type="text" id="targetInput" placeholder="Enter a 5 or 6 letter word... (e.g. BREAD)" />
+        <div class="noise-group">
+            <label for="noisePct">Noise %:</label>
+            <input type="number" id="noisePct" value="10" min="0" max="49" step="1" title="Noise level" />
+            <span class="noise-hint"></span>
+        </div>
         <button id="runBtn" onclick="runSimulation()">Solve!</button>
         <span id="loading" style="display:none; color: #64748b; font-style: italic; font-size: 0.9em;">Computing bounds...</span>
     </div>
@@ -330,9 +361,10 @@ HTML_PAGE = """
         document.getElementById('loading').style.display = 'inline';
         document.getElementById('app-body').style.display = 'none';
 
+        const noisePct = parseFloat(document.getElementById('noisePct').value) || 0;
         fetch('/simulate', {
             method: 'POST',
-            body: JSON.stringify({word: word})
+            body: JSON.stringify({word: word, noise_pct: noisePct})
         })
         .then(res => res.json())
         .then(data => {
@@ -504,8 +536,12 @@ class VisualizerHandler(BaseHTTPRequestHandler):
                 return
                 
             try:
+                noise_pct = float(req.get('noise_pct', 10))
+                noise_pct = max(0.0, min(49.0, noise_pct))  # clamp 0-49
+                p_correct = (100.0 - noise_pct) / 100.0
+                p_wrong   = (noise_pct / 2.0) / 100.0
                 # 100 turns natively implemented!
-                history = get_game_history(target, dictionary, max_turns=100)
+                history = get_game_history(target, dictionary, p_correct=p_correct, p_wrong=p_wrong, max_turns=100)
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
